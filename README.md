@@ -1,28 +1,13 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# BitInvest App
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+O projeto BitInvest se baseia na criação de uma plataforma que ofereça um 
+ambiente simulado que ajude investidores e pessoas interessadas no mercado de 
+moedas criptografadas, para que aprendam mais sobre este tipo de investimento.
+
+
+The bitInvest project is based on the creation of a platform that offers an 
+simulated environment where investors and individuals interested in the 
+cryptocoin market can learn more about this kind of investment. 
+
+[*BitInvest App*](https://bitbucket.org/rodrigopk/bitinvest)
