@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   
   resources :users
+  resources :coins,          only: [:index]
   
 end
