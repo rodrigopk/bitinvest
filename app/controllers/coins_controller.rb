@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   
   require 'open-uri'
+  before_action :logged_in_user, only: [:index]
   
   def index
     @coins = []
