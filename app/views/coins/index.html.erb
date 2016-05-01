@@ -1,0 +1,13 @@
+<% provide(:title, 'Cotações') %>
+<h1>Cotações</h1>
+
+<table class="table">
+  <%= render 'table_header' %>
+  <tbody>
+    <% @coins.each do |coin| %>
+      <%= render coin %>
+    <% end %>
+  </tbody>
+</table>
+
+
