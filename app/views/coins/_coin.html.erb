@@ -1,5 +1,6 @@
 <tr>
-  <th scope="row"> <%= coin.id %> </th>
+  <td> <%= link_to image_tag( coin.name.downcase+"-small.png", alt: coin.name ),
+            '#' %> </td>
   <td> <%= coin.name %> </td>
   <td> <%= coin.symbol %> </td>		
   <td> <%= coin.value %> </td>
