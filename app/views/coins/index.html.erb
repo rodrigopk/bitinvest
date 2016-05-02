@@ -4,7 +4,7 @@
 <table class="table">
   <%= render 'table_header' %>
   <tbody>
-    <% @coins.each do |coin| %>
+    <% @coins.sort_by{ | coin | -coin.value }.each do |coin| %>
       <%= render coin %>
     <% end %>
   </tbody>
