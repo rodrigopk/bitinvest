@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Bem vindo ao BitInvest!"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Por favor verifique seu email para ativar sua conta."
+      redirect_to root_url
     else
       render 'new'
     end
@@ -43,8 +43,6 @@ class UsersController < ApplicationController
     end
     
     # Before filters
-
-    
     
     # Confirms the correct user.
     def correct_user
