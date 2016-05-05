@@ -8,4 +8,15 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <table class="table">
+      <%= render 'table_header' %>
+      <h3>Minhas carteiras </h3>
+      <tbody>
+        <% if @wallets.any? %>
+          <%= render @wallets %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

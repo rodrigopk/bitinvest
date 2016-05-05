@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504190010) do
+ActiveRecord::Schema.define(version: 20160505182558) do
 
   create_table "coins", force: :cascade do |t|
     t.string   "name"
@@ -37,5 +37,16 @@ ActiveRecord::Schema.define(version: 20160504190010) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "wallets", force: :cascade do |t|
+    t.float    "units"
+    t.integer  "user_id"
+    t.integer  "coin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "wallets", ["coin_id"], name: "index_wallets_on_coin_id"
+  add_index "wallets", ["user_id"], name: "index_wallets_on_user_id"
 
 end

@@ -73,4 +73,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
   
+  test "associated wallets should be destroyed" do
+    @user.save
+    @coin = coins(:cryptocoin)
+    @user.wallets.create!(units: 1.0, coin_id: @coin.id)
+    assert_difference 'Wallet.count', -1 do
+      @user.destroy
+    end
+  end
+  
 end

@@ -4,16 +4,13 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              activated: true,
              activated_at: Time.zone.now)
-
-#99.times do |n|
-#  name  = Faker::Name.name
-#  email = "example-#{n+1}@railstutorial.org"
-#  password = "password"
-#  User.create!(name:  name,
-#               email: email,
-#               password:              password,
-#               password_confirmation: password)
-#end
+             
+User.create!(name:  "Rodrigo Vasconcelos",
+             email: "rodrigopk@gmail.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             activated: true,
+             activated_at: Time.zone.now)             
 
 Coin.create(name: "Bitcoin", 
             symbol: "BTC", 
@@ -63,4 +60,13 @@ Coin.create(name: "Namecoin",
 Coin.create(name: "Feathercoin", 
             symbol: "FTC", 
             value: 0.03375246, 
-            volume: 0)            
+            volume: 0)      
+            
+
+users = User.all 
+coins = Coin.all
+users.each { |user| 
+  coins.each { |coin|
+    user.wallets.create!(units: 10.0, coin_id:coin.id) 
+  }
+}

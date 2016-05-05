@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   
+  has_many :wallets, dependent: :destroy
+  
   attr_accessor :remember_token, :activation_token
   attr_accessor :remember_token, :activation_token, :reset_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

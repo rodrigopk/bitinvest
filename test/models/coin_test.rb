@@ -3,7 +3,7 @@ require 'test_helper'
 class CoinTest < ActiveSupport::TestCase
 
   def setup
-    @coin = Coin.new(name: "Cryptocoin", symbol: "CRY", value: 1.00000000, volume: 1000.00000000)
+    @coin = coins(:cryptocoin)
   end
   
   test "should be valid" do
