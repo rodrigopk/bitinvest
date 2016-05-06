@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  units: 1.5
+  user_id: 
+  coin_id: 
+
+two:
+  units: 1.5
+  user_id: 
+  coin_id: 
