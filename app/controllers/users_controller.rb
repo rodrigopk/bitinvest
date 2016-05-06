@@ -4,7 +4,17 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @wallets = @user.wallets
+    @wallets = []
+    @fiat = []
+    @user.wallets.each { |wallet|
+      
+      if wallet.coin.is_fiat?
+        @fiat << wallet
+      else
+        @wallets << wallet
+      end
+      
+    }
   end
   
   def new
@@ -14,6 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.create_initial_wallets
       @user.send_activation_email
       flash[:info] = "Por favor verifique seu email para ativar sua conta."
       redirect_to root_url

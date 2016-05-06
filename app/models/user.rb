@@ -77,6 +77,18 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
   
+  def create_initial_wallets
+    
+      Coin.all.each { |coin|
+        if coin.is_fiat == false 
+          self.wallets.create!(units: 10.0, coin_id:coin.id)   
+        else
+          self.wallets.create!(units: 10000.0, coin_id:coin.id)   
+        end
+      }
+    
+    end
+  
   private
 
     # Converts email to all lower-case.

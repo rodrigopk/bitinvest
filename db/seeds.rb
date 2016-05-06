@@ -61,12 +61,23 @@ Coin.create(name: "Feathercoin",
             symbol: "FTC", 
             value: 0.03375246, 
             volume: 0)      
+
+Coin.create(name: "Dolar", 
+            symbol: "USD", 
+            value: 1.0, 
+            volume: 0,
+            is_fiat: true) 
             
 
 users = User.all 
 coins = Coin.all
 users.each { |user| 
   coins.each { |coin|
-    user.wallets.create!(units: 10.0, coin_id:coin.id) 
+    if coin.is_fiat == false 
+      user.wallets.create!(units: 10.0, coin_id:coin.id)   
+    else
+      user.wallets.create!(units: 10000.0, coin_id:coin.id)   
+    end
+    
   }
 }
