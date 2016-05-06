@@ -18,4 +18,9 @@ class CoinsController < ApplicationController
     #@coins = Coin.paginate(page: params[:page])
   end
   
+  def show 
+    @coin = Coin.find(params[:id])
+    
+  end
+  
 end

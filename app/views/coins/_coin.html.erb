@@ -1,7 +1,7 @@
 <tr>
   <td> <%= link_to image_tag( coin.name.downcase+"-small.png", alt: coin.name ),
-            '#' %> </td>
-  <td> <%= coin.name %> </td>
+            coin %> </td>
+  <td> <%= link_to coin.name ,coin %> </td>
   <td> <%= coin.symbol %> </td>		
   <td> <%= coin.value %> </td>
   <td> <%= coin.volume %> </td>

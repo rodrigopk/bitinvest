@@ -1,0 +1,24 @@
+<% provide(:title, @coin.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+          <h1>
+            <%= image_tag( @coin.name.downcase+"-small.png", alt: @coin.name ) %>
+            <%= @coin.name+"("+@coin.symbol+")" %>
+            <%= link_to "Comprar", '#', class: "btn btn-sm btn-primary" %>
+          </h1>
+    </section>
+  </aside>
+</div>
+<table class="table">
+  <tbody>
+    <%= render 'layouts/table_header_coin' %>
+    <tr>
+      <td> <%= @coin.value %> </td>
+      <td> <%= @coin.volume %> </td>
+      <td> -- </td>
+      <td> -- </td>
+      <td> -- </td>
+    </tr>
+  </tbody>
+</table>

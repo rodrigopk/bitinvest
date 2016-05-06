@@ -1,7 +1,7 @@
 <tr>
   <td> <%= link_to image_tag( wallet.coin.name.downcase+"-small.png", alt: wallet.coin.name ),
-            '#' %> </td>
-  <td> <%= wallet.coin.name %> </td>
+            wallet.coin %> </td>
+  <td> <%= link_to wallet.coin.name, wallet.coin %> </td>
   <td> <%= wallet.coin.symbol %> </td>		
   <td> <%= wallet.units %> </td>
   <% if !wallet.coin.is_fiat? %>
