@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  units: 1.5
+loaded:
+  units: 1000000.0
   user_id: 
   coin_id: 
 
-two:
-  units: 1.5
+
+poor:
+  units: 1000000.0
   user_id: 
   coin_id: 

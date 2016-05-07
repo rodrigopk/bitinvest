@@ -5,7 +5,6 @@ class WalletTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     @coin = coins(:cryptocoin)
-    # This code is not idiomatically correct.
     @wallet = @user.wallets.build(units: 1.0, coin_id: @coin.id)
   end
 
@@ -26,6 +25,14 @@ class WalletTest < ActiveSupport::TestCase
   test "units cannot be smaller than 0" do
     @wallet.units = -1
     assert_not @wallet.valid?
+  end
+  
+  test "associated transactions should be destroyed" do
+    @wallet.save
+    @wallet.transactions.create!(units: 1.0)
+    assert_difference 'Transaction.count', -1 do
+      @wallet.destroy
+    end
   end
   
 end

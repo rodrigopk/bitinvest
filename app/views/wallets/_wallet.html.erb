@@ -12,7 +12,8 @@
   <td> <%= wallet.units %> </td>
   <% if !wallet.coin.is_fiat? %>
     <td> -- </td>
-    <td> <%= link_to "Vender", '#', class: "btn btn-sm btn-primary" %> </td>
+    <td> <%= link_to "Vender", new_transaction_path(:type => 'sell',
+              :wallet => wallet.id), class: "btn btn-sm btn-primary" %> </td>
   <% end %>
 </tr>
 
