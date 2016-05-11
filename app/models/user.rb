@@ -87,7 +87,21 @@ class User < ActiveRecord::Base
         end
       }
     
-    end
+  end
+  
+  def get_wallet_by_coin(coin_id)
+    self.wallets.find_by coin_id: coin_id
+  end
+  
+  def get_fiat_wallet
+  
+    self.wallets.each { |wallet|
+      if wallet.coin.is_fiat
+        return wallet
+      end
+    }
+  
+  end
   
   private
 

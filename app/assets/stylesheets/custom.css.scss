@@ -40,6 +40,11 @@ table {
   }
 }
 
+.pull-right {
+  margin-bottom: 10px;
+  
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -164,7 +169,7 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;

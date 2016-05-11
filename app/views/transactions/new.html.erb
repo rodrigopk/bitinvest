@@ -1,8 +1,4 @@
-<% if @type == 'sell' %>
-  <% provide(:title, "Vender") %>
-<% elsif @type == 'buy' %>
-  <% provide(:title, "Comprar") %>
-<% end %>
+<% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -14,22 +10,39 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th>Unidades</th>
-          <th>Valor($)</th>
-          <th>Valor(฿)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="text" id="units" oninput="update(<%= @fiat %>,
-                    <%= @bitcoin %>)" value="1.0"></input></td>
-          <td><div id="fiat"><%= @fiat %></div></td>
-          <td><div id="bitcoin"><%= @bitcoin %></div></td>
-        </tr>
-      <tbody>
-    </table>
+    <form accept-charset="UTF-8" action="/transactions" class="new_transaction"
+      id="new_transaction" method="post">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <input name="wallet_id" type="hidden" value=<%= @wallet.id %> />
+  <input name="type" type="hidden" value=<%= @type %> />         
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Unidades</th>
+        <th>Restante</th>
+        <th>Valor($)</th>
+        <th>Valor(฿)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% if @type == 'sell' %>
+          <td><input type="text" name="units" id="units" oninput="update_sell(<%= @fiat %>,
+                    <%= @bitcoin %>,<%= @wallet.units %>)" value="0.0"></input></td>
+        <% else %>                  
+          <td><input type="text" name="units" id="units" oninput="update_buy(<%= @fiat %>,
+                  <%= @bitcoin %>,<%= @wallet.units %>)" value="0.0"></input></td>
+        <% end %>
+        <td><div id="remaining"> <%= @wallet.units %> </div></td>
+        <td><div id="fiat"><%= @fiat %></div></td>
+        <td><div id="bitcoin"><%= @bitcoin %></div></td>
+      </tr>
+    <tbody>
+  </table>
+  <input class="btn btn-primary pull-right" name="commit" type="submit"
+           value= <%= @title %> >
+</form>
   </div>
 </div>
+
