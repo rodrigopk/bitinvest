@@ -16,6 +16,12 @@ gem 'jquery-rails', '4.0.3'
 gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
+gem 'whenever' #cronjobs
+gem 'sidekiq'
+gem 'sidekiq-client-cli' #to run sidekiq with whenever
+gem 'slim', ">= 1.3.0" #pseudo language
+gem 'sinatra', '>= 1.3.0', :require => nil #interface
+gem 'sidekiq-middleware' #handle locks
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

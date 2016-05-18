@@ -8,7 +8,6 @@ set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log
 
 every 2.minutes do
   
-  command "=== Updating coin values ==="
   rake "data_updates:cryptocoins_update_task"
    
 end
