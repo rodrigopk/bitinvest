@@ -9,9 +9,9 @@
   bitcoin_val = $("#units").val()*bitcoin
   remaining_val = parseInt( wallet_units, 10 )-parseInt( $("#units").val(), 10 ) 
   
-  $("#fiat").html fiat_val
-  $("#bitcoin").html bitcoin_val
-  $("#remaining").html remaining_val
+  $("#fiat").html fiat_val.toFixed(8)
+  $("#bitcoin").html bitcoin_val.toFixed(8)
+  $("#remaining").html remaining_val.toFixed(8)
   
   
 @update_buy = (fiat,bitcoin,wallet_units) ->
@@ -20,7 +20,7 @@
   bitcoin_val = $("#units").val()*bitcoin
   remaining_val = parseInt( wallet_units, 10 )+parseInt( $("#units").val(), 10 )  
   
-  $("#fiat").html fiat_val
-  $("#bitcoin").html bitcoin_val
-  $("#remaining").html remaining_val
+  $("#fiat").html fiat_val.toFixed(8)
+  $("#bitcoin").html bitcoin_val.toFixed(8)
+  $("#remaining").html remaining_val.toFixed(8)
 

@@ -9,7 +9,7 @@
     <td> <%= wallet.coin.name %> </td>
   <% end %>
   <td> <%= wallet.coin.symbol %> </td>		
-  <td> <%= wallet.units %> </td>
+  <td> <%= number_with_precision(wallet.units, precision: 8) %> </td>
   <% if !wallet.coin.is_fiat? %>
     <td> -- </td>
     <td> <%= link_to "Vender", new_transaction_path(:type => 'sell',
