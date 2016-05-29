@@ -18,9 +18,9 @@
     <tr>
       <td> <%= number_to_currency(@coin.value, precision: 8) %> </td>
       <td> <%= number_with_precision(@coin.volume, precision: 8) %> </td>
-      <td> -- </td>
-      <td> -- </td>
-      <td> -- </td>
+      <td style=<%= @colors[:hour] %>> <%= @coin.variations[:hour] %> </td>
+      <td style=<%= @colors[:day] %>> <%= @coin.variations[:day] %> </td>
+      <td style=<%= @colors[:week] %>> <%= @coin.variations[:week] %> </td>
     </tr>
   </tbody>
 </table>

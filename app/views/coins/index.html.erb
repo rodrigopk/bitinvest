@@ -2,7 +2,7 @@
 <h1>Cotações</h1>
 
 <table class="table">
-  <%= render 'table_header' %>
+  <%= render partial: 'table_header'%>
   <tbody>
     <% @coins.sort_by{ | coin | -coin.value }.each do |coin| %>
       <%= render coin %>

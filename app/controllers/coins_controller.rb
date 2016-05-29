@@ -5,23 +5,37 @@ class CoinsController < ApplicationController
   
   def index
     @coins = []
+    @colors = {}
     Coin.all.each do |coin|
       if !coin.is_fiat?
-        # json_string = JSON.load(open("https://www.cryptonator.com/api/ticker/"+coin.symbol.downcase+"-usd"))
-        # ticker = json_string["ticker"]
-        # coin.value = ticker["price"].to_f
-        # coin.volume = ticker["volume"].to_f
-        #coin.save
         @coins.push(coin)
+        if coin.variations[:hour] == 0
+          color = "black"
+        elsif coin.variations[:hour] > 0
+          color = "green"
+        else
+          color = "red"
+        end
+        @colors[coin.name] = color
       end
-      
     end
     #@coins = Coin.paginate(page: params[:page])
   end
   
   def show 
     @coin = Coin.find(params[:id])
-    
+    @colors = {}
+    @coin.variations.each do |key, value|
+      if value == 0
+        color = "color:black;"
+      elsif value > 0
+        color = "color:green;"
+      else
+        color = "color:red;"
+      end
+      @colors[key] = color
+    end
   end
+  
   
 end
