@@ -6,12 +6,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @wallets = []
     @fiat = []
+    @colors = {}
     @user.wallets.each { |wallet|
       
       if wallet.coin.is_fiat?
         @fiat << wallet
       else
         @wallets << wallet
+        if wallet.coin.variations[:day] == 0
+          color = "black"
+        elsif wallet.coin.variations[:day] > 0
+          color = "green"
+        else
+          color = "red"
+        end
+        @colors[wallet.coin.name] = color
       end
       
     }
