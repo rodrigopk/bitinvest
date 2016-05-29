@@ -15,6 +15,7 @@ class Coin < ActiveRecord::Base
      self.value = ticker["price"].to_f
      self.volume = ticker["volume"].to_f
      self.save!
+     update_history
   end
   
   private
@@ -27,6 +28,38 @@ class Coin < ActiveRecord::Base
         self.last_updated_hours ||= Time.now
         self.last_updated_days ||= Time.now
         self.last_updated_weeks ||= Time.now
+    end
+    
+    def update_history 
+      current_time = Time.now
+      if ( (self.last_updated_hours - current_time) / 1.hour  >= 1 )
+        #Calcular valor de variations[ :hour ]
+        variation = self.value/self.hourly_value
+        variation = (variation >= 1)? variation-1 : -variation
+        
+        self.variations[:hour] = variation
+        self.last_updated_hours = current_time
+        self.hourly_value = self.value
+      end
+      if ( (self.last_updated_days - current_time) / 1.day  >= 1 )
+        #Calcular valor de variations[ :day ]
+        variation = self.value/self.daily_value
+        variation = (variation >= 1)? variation-1 : -variation
+        
+        self.variations[:day] = variation
+        self.last_updated_days = current_time
+        self.daily_value = self.value
+      end
+      if ( (self.last_updated_weeks - current_time) / 1.week  >= 1 )
+        #Calcular valor de variations[ :week ]
+        variation = self.value/self.weekly_value
+        variation = (variation >= 1)? variation-1 : -variation
+        
+        self.variations[:week] = variation
+        self.last_updated_weeks = current_time
+        self.weekly_value = self.value
+      end
+      self.save!
     end
 
 end
