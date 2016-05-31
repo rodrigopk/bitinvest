@@ -12,3 +12,8 @@ en:
   edit_link: "Edit"
   logout_link: "Log out"
   login_link: "Log in"
+  value: "Value"
+  volume: "Volume"
+  name: "Name"
+  symbol: "Symbol"
+  units: "Units"

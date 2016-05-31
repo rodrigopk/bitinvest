@@ -12,3 +12,8 @@ pt:
   edit_link: "Editar"
   logout_link: "Sair"
   login_link: "Entrar"
+  value: "Valor"
+  volume: "Volume"
+  name: "Nome"
+  symbol: "Símbolo"
+  units: "Unidades"
