@@ -11,7 +11,7 @@
   <div class="col-md-8">
     <table class="table">
       <%= render 'layouts/table_header_crypto' %>
-      <h3>Minhas carteiras </h3>
+      <h3><%= t(:my_wallets)%></h3>
       <tbody>
         <% if @wallets.any? %>
           <%= render @wallets %>
@@ -21,7 +21,7 @@
     
     <table class="table">
       <%= render 'layouts/table_header_fiat' %>
-      <h3> Outras moedas </h3>
+      <h3> <%= t(:other_coins)%> </h3>
       <tbody>
         <% if @fiat.any? %>
           <%= render @fiat %>

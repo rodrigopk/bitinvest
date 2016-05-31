@@ -30,7 +30,15 @@ en:
   remaining: "Remaining"
   insufficient: "Insufficient funds."
   here: "here"
+  edit_profile: "Edit Profile"
+  save_changes: "Save changes"
+  change: "Change gravatar"
+  sign_up: "Sign up"
+  create_account: "Create my account"
+  my_wallets: "My wallets"
+  other_coins: "Other coins"
   
+  #TL;DR
   contact_subtext: "TO-DO: Implement contact form."
   forgot_password_subtext: "No problem,we'll send a link to your email to reset your password."
   help_subtext: "TO-DO: Write help docummentation."
