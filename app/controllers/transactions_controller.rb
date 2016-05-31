@@ -8,9 +8,9 @@ class TransactionsController < ApplicationController
     @fiat = @wallet.coin.value
     @bitcoin = @fiat/(Coin.find_by symbol: 'BTC').value
     if @type == 'sell'
-      @title = "Vender"
+      @title = t(:sell)
     else
-      @title = "Comprar"
+      @title = t(:buy)
     end
     
   end
@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
     
     if ( params[:type] == 'sell' && @source_units.abs > @source_wallet.units.abs ) ||
         ( params[:type] == 'buy' && @fiat_units.abs > @fiat_wallet.units.abs )
-      flash[:danger] = 'Fundos insuficientes.'
+      flash[:danger] = t(:insufficient)
       redirect_to new_transaction_path(:type => @type,:wallet => @source_wallet.id)
     else
       @fiat_wallet.update(units: @fiat_units)
