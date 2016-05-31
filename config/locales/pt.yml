@@ -1,5 +1,5 @@
 pt:
-  hello: "Olá mundo!"
+  hello: "Olá"
   home_subtext: "O simulador de investimentos em cryptocoins"
   signup_button: "Cadastre-se agora"
   home_header: "Bem vindo ao BitInvest"
@@ -29,8 +29,14 @@ pt:
   new_user: "Novo usuário?"
   remaining: "Restante"
   insufficient: "Fundos insuficientes."
+  here: "aqui"
   
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."
   contact_subtext: "TO-DO: Implementar form de contato."
   help_subtext: "TO-DO: Escrever documentação de ajuda."
-  
+  thank_you: "Obrigado por criar uma conta no BitInvest!"
+  click_to_activate: "Para ativar sua conta, clique"
+  click_below: "Para ativar sua conta,clique no link abaixo:"
+  click_to_reset: "Para redefinir sua senha, clique"
+  click_to_reset_below: "Para redefinir sua senha, clique no link abaixo:"
+  link_will_expire: "Esse link irá expirar em duas horas.\nSe você não requisitou a redefinição de sua  senha, por favor ignore esse email e sua senha permanecerá como está."

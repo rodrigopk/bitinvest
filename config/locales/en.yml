@@ -1,5 +1,5 @@
 en:
-  hello: "Hello world"
+  hello: "Hello"
   home_header: "Welcome to BitInvest"
   home_subtext: "The cryptocoin investments simulator"
   signup_button: "Sign up now"
@@ -29,7 +29,14 @@ en:
   new_user: "New user?"
   remaining: "Remaining"
   insufficient: "Insufficient funds."
+  here: "here"
   
   contact_subtext: "TO-DO: Implement contact form."
   forgot_password_subtext: "No problem,we'll send a link to your email to reset your password."
   help_subtext: "TO-DO: Write help docummentation."
+  thank_you: "Thank you for signing up for BitInvest!"
+  click_to_activate: "To activate your account, click"
+  click_below: "To activate your account, click the link below:"
+  click_to_reset: "To reset your password, click"
+  click_to_reset_below: "To reset your password, click on the link below:"
+  link_will_expire: "This link will expire in two hours.\nIf you didn't requested this password reset, please ignore this e-mail."

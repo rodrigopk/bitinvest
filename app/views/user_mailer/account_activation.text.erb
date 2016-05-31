@@ -1,6 +1,6 @@
-Olá <%= @user.name %>,
+<%= t :hello%> <%= @user.name %>,
 
-Obrigado por criar uma conta no BitInvest!
-Clique no link abaixo para ativar sua conta.
+<%= t :thank_you %>
+<%= t :click_below %>
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
