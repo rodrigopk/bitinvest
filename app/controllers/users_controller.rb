@@ -14,11 +14,11 @@ class UsersController < ApplicationController
       else
         @wallets << wallet
         if wallet.coin.variations[:day] == 0
-          color = "black"
+          color = "color:black;"
         elsif wallet.coin.variations[:day] > 0
-          color = "green"
+          color = "color:green;"
         else
-          color = "red"
+          color = "color:red;"
         end
         @colors[wallet.coin.name] = color
       end
