@@ -10,11 +10,11 @@ class CoinsController < ApplicationController
       if !coin.is_fiat?
         @coins.push(coin)
         if coin.variations[:hour] == 0
-          color = "black"
+          color = "color:black;"
         elsif coin.variations[:hour] > 0
-          color = "green"
+          color = "color:green;"
         else
-          color = "red"
+          color = "color:red;"
         end
         @colors[coin.name] = color
       end

@@ -8,14 +8,14 @@ class Coin < ActiveRecord::Base
   serialize :variations
   
   def update
-    File.open('log/coin_update.log', 'w') { |file| file.write("updating coin :"+self.name+"\n") }
-     json_string = JSON.load(open("https://www.cryptonator.com/api/ticker/"+self.symbol.downcase+"-usd"))
-     ticker = json_string["ticker"]
+    #File.open('log/coin_update.log', 'w') { |file| file.write("updating coin :"+self.name+"\n") }
+    json_string = JSON.load(open("https://www.cryptonator.com/api/ticker/"+self.symbol.downcase+"-usd"))
+    ticker = json_string["ticker"]
      #self.name = self.name + "!" #test if updating
-     self.value = ticker["price"].to_f
-     self.volume = ticker["volume"].to_f
-     self.save!
-     update_history
+    self.value = ticker["price"].to_f
+    self.volume = ticker["volume"].to_f
+    self.save!
+    update_history
   end
   
   private
@@ -32,7 +32,7 @@ class Coin < ActiveRecord::Base
     
     def update_history 
       current_time = Time.now
-      if ( (self.last_updated_hours - current_time) / 1.hour  >= 1 )
+      if ( (current_time-self.last_updated_hours) / 1.hour  >= 1 )
         #Calcular valor de variations[ :hour ]
         variation = self.value/self.hourly_value
         variation = (variation >= 1)? variation-1 : -variation
@@ -41,7 +41,7 @@ class Coin < ActiveRecord::Base
         self.last_updated_hours = current_time
         self.hourly_value = self.value
       end
-      if ( (self.last_updated_days - current_time) / 1.day  >= 1 )
+      if ( (current_time-self.last_updated_days) / 1.day  >= 1 )
         #Calcular valor de variations[ :day ]
         variation = self.value/self.daily_value
         variation = (variation >= 1)? variation-1 : -variation
@@ -50,7 +50,7 @@ class Coin < ActiveRecord::Base
         self.last_updated_days = current_time
         self.daily_value = self.value
       end
-      if ( (self.last_updated_weeks - current_time) / 1.week  >= 1 )
+      if ( (current_time-self.last_updated_weeks) / 1.week  >= 1 )
         #Calcular valor de variations[ :week ]
         variation = self.value/self.weekly_value
         variation = (variation >= 1)? variation-1 : -variation
