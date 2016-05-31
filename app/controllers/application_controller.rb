@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  
+  include HttpAcceptLanguage::AutoLocale
   include SessionsHelper
   
   # Prevent CSRF attacks by raising an exception.

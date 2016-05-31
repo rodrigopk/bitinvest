@@ -22,6 +22,7 @@ gem 'sidekiq-client-cli' #to run sidekiq with whenever
 gem 'slim', ">= 1.3.0" #pseudo language
 gem 'sinatra', '>= 1.3.0', :require => nil #interface
 gem 'sidekiq-middleware' #handle locks
+gem 'http_accept_language'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
