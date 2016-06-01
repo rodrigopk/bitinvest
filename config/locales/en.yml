@@ -37,6 +37,15 @@ en:
   create_account: "Create my account"
   my_wallets: "My wallets"
   other_coins: "Other coins"
+  email_not_found: "Email not found."
+  cannot_be_empty: "Can't be empty."
+  password_updated: "Password updated"
+  link_expired: "The reset link has expired."
+  account_not_activated: "Your account has not been activated."
+  verify_email: "Check your email for the activation link."
+  invalid_login: "Invalid email/password."
+  please_check_email: "Please check your email to activate your account."
+  profile_updated: "Profile updated"
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."
@@ -48,3 +57,7 @@ en:
   click_to_reset: "To reset your password, click"
   click_to_reset_below: "To reset your password, click on the link below:"
   link_will_expire: "This link will expire in two hours.\nIf you didn't requested this password reset, please ignore this e-mail."
+  account_activated: "Account activated with success."
+  invalid_link: "Invalid activation link."
+  email_sent_message: "Email with password reset instructions sent to "
+  

@@ -37,7 +37,15 @@ pt:
   create_account: "Criar minha conta"
   my_wallets: "Minhas carteiras"
   other_coins: "Outras moedas"
-  
+  email_not_found: "Email não encontrado."
+  cannot_be_empty: "Não pode ficar vazio."
+  password_updated: "Senha redefinida."
+  link_expired: "O link de redefinição expirou."
+  account_not_activated: "Sua conta ainda não foi ativada."
+  verify_email: "Verifique o seu email para encontrar o link de ativação."
+  invalid_login: "Email/senha inálidos."
+  please_check_email: "Por favor verifique seu email para ativar sua conta."
+  profile_updated: "Perfil atualizado."
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."
@@ -49,3 +57,6 @@ pt:
   click_to_reset: "Para redefinir sua senha, clique"
   click_to_reset_below: "Para redefinir sua senha, clique no link abaixo:"
   link_will_expire: "Esse link irá expirar em duas horas.\nSe você não requisitou a redefinição de sua  senha, por favor ignore esse email e sua senha permanecerá como está."
+  account_activated: "Conta ativada com êxito."
+  invalid_link: "Link de ativação inválido."
+  email_sent_message: "Email enviado com instruções para redefinição de senha para "

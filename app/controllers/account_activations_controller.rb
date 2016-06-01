@@ -5,10 +5,10 @@ class AccountActivationsController < ApplicationController
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
       log_in user
-      flash[:success] = "Conta ativada com êxito."
+      flash[:success] = t(:account_activated)
       redirect_to user
     else
-      flash[:danger] = "Link de ativação inválido."
+      flash[:danger] = t(:invalid_link)
       redirect_to root_url
     end
   end

@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.create_initial_wallets
       @user.send_activation_email
-      flash[:info] = "Por favor verifique seu email para ativar sua conta."
+      flash[:info] = t(:please_check_email)
       redirect_to root_url
     else
       render 'new'
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = t(:profile_updated)
       redirect_to @user
     else
       render 'edit'
