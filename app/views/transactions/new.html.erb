@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
           <h1>
-            <%= image_tag( @wallet.coin.name.downcase+"-small.png", 
+            <%= image_tag( "coin_icons/"+@wallet.coin.tag+".png", 
             alt: @wallet.coin.name ) %>
             <%= @wallet.coin.name+"("+@wallet.coin.symbol+")" %>
           </h1>

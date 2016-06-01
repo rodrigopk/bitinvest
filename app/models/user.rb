@@ -79,13 +79,10 @@ class User < ActiveRecord::Base
   
   def create_initial_wallets
     
-      Coin.all.each { |coin|
-        if coin.is_fiat == false 
-          self.wallets.create!(units: 10.0, coin_id:coin.id)   
-        else
-          self.wallets.create!(units: 10000.0, coin_id:coin.id)   
-        end
-      }
+      for i in 0..9
+         self.wallets.create!(units: 10.0, coin_id: Coin.all[i].id)   
+      end
+      self.wallets.create!(units: 10000.0, coin_id: Coin.last.id)  
     
   end
   
@@ -94,13 +91,10 @@ class User < ActiveRecord::Base
   end
   
   def get_fiat_wallet
-  
     self.wallets.each { |wallet|
-      if wallet.coin.is_fiat
-        return wallet
-      end
+      return wallet if wallet.coin.is_fiat? == true
     }
-  
+    nil
   end
   
   private

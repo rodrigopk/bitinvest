@@ -60,3 +60,7 @@ pt:
   account_activated: "Conta ativada com êxito."
   invalid_link: "Link de ativação inválido."
   email_sent_message: "Email enviado com instruções para redefinição de senha para "
+  
+  will_paginate:
+    previous_label: "Anterior"
+    next_label: "Próximo"

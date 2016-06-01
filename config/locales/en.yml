@@ -61,3 +61,6 @@ en:
   invalid_link: "Invalid activation link."
   email_sent_message: "Email with password reset instructions sent to "
   
+  will_paginate:
+    previous_label: "Next"
+    next_label: "Previous"

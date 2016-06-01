@@ -1,13 +1,17 @@
 <% provide(:title, t(:currencies_link)) %>
-<h1>Cotações</h1>
+<h1><%= t(:currencies_link) %></h1>
 
+<%= will_paginate %>
 <table class="table">
   <%= render partial: 'table_header'%>
   <tbody>
-    <% @coins.sort_by{ | coin | -coin.value }.each do |coin| %>
-      <%= render coin %>
+    <% @coins.each do |coin| %>
+      <% if !coin.is_fiat?  %>
+        <%= render coin %>
+      <% end  %>  
     <% end %>
   </tbody>
 </table>
+<%= will_paginate %>
 
 

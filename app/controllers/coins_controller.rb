@@ -4,11 +4,9 @@ class CoinsController < ApplicationController
   before_action :logged_in_user, only: [:index]
   
   def index
-    @coins = []
     @colors = {}
-    Coin.all.each do |coin|
+    Coin.paginate(page: params[:page]).each do |coin|
       if !coin.is_fiat?
-        @coins.push(coin)
         if coin.variations[:hour] == 0
           color = "color:black;"
         elsif coin.variations[:hour] > 0
@@ -19,7 +17,7 @@ class CoinsController < ApplicationController
         @colors[coin.name] = color
       end
     end
-    #@coins = Coin.paginate(page: params[:page])
+    @coins = Coin.paginate(page: params[:page])
   end
   
   def show 

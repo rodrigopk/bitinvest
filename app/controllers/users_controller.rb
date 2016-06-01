@@ -8,11 +8,9 @@ class UsersController < ApplicationController
     @fiat = []
     @colors = {}
     @user.wallets.each { |wallet|
-      
       if wallet.coin.is_fiat?
         @fiat << wallet
       else
-        @wallets << wallet
         if wallet.coin.variations[:day] == 0
           color = "color:black;"
         elsif wallet.coin.variations[:day] > 0
@@ -21,6 +19,7 @@ class UsersController < ApplicationController
           color = "color:red;"
         end
         @colors[wallet.coin.name] = color
+        @wallets << wallet
       end
       
     }

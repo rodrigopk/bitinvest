@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
           <h1>
-            <%= image_tag( @coin.name.downcase+"-small.png", alt: @coin.name ) %>
+            <%= image_tag( "coin_icons/"+@coin.tag+".png", alt: @coin.name ) %>
             <%= @coin.name+"("+@coin.symbol+")" %>
             <%= link_to t(:buy), new_transaction_path(:type => 'buy',
               :wallet => current_user.get_wallet_by_coin(@coin.id)), 
