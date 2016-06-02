@@ -7,8 +7,9 @@ class Coin < ActiveRecord::Base
   serialize :variations
   
   def update(hash)
-    File.open('log/coin_update.log', 'a+') { |file| file.write("updating coin :"+self.name+"\n") }
-    #hash = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"+self.tag))[0]
+    if Rails.env.development?
+      File.open('log/coin_update.log', 'a+') { |file| file.write("updating coin :"+self.name+"\n") }
+    end
 
     self.value = hash["price_usd"]
     self.volume = hash["24h_volume_usd"]
