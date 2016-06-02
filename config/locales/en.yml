@@ -13,7 +13,7 @@ en:
   logout_link: "Log out"
   login_link: "Log in"
   value: "Value"
-  volume: "Volume"
+  volume: "Volume(24h)"
   name: "Name"
   symbol: "Symbol"
   units: "Units"
@@ -46,6 +46,9 @@ en:
   invalid_login: "Invalid email/password."
   please_check_email: "Please check your email to activate your account."
   profile_updated: "Profile updated"
+  market_cap: "Market cap"
+  available_supply: "Available supply"
+  total_value: "Total value"
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."

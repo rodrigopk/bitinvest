@@ -13,7 +13,7 @@ pt:
   logout_link: "Sair"
   login_link: "Entrar"
   value: "Valor"
-  volume: "Volume"
+  volume: "Volume(24h)"
   name: "Nome"
   symbol: "Símbolo"
   units: "Unidades"
@@ -46,6 +46,9 @@ pt:
   invalid_login: "Email/senha inálidos."
   please_check_email: "Por favor verifique seu email para ativar sua conta."
   profile_updated: "Perfil atualizado."
+  market_cap: "Total de mercado"
+  available_supply: "Oferta disponível"
+  total_value: "Valor total"
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."

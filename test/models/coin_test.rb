@@ -15,19 +15,9 @@ class CoinTest < ActiveSupport::TestCase
     assert_not @coin.valid? 
   end
   
-  test "symbol must be present" do
-    @coin.symbol = ""
-    assert_not @coin.valid? 
-  end
-  
-  test "symbol should not be too long" do
-    @coin.symbol = "a" * 5
-    assert_not @coin.valid? 
-  end
-  
-  test "symbol should be unique" do
+  test "tag should be unique" do
     duplicate_coin = @coin.dup
-    duplicate_coin.symbol = @coin.symbol.upcase
+    duplicate_coin.tag = @coin.tag
     @coin.save
     assert_not duplicate_coin.valid?
   end

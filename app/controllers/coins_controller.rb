@@ -7,6 +7,9 @@ class CoinsController < ApplicationController
     @colors = {}
     Coin.paginate(page: params[:page]).each do |coin|
       if !coin.is_fiat?
+        if coin.variations.nil?
+          logger.debug "nil variation: #{coin.name}"
+        end
         if coin.variations[:hour] == 0
           color = "color:black;"
         elsif coin.variations[:hour] > 0
