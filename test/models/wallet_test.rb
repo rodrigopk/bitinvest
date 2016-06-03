@@ -22,6 +22,11 @@ class WalletTest < ActiveSupport::TestCase
     assert_not @wallet.valid?
   end
   
+  test "units can be equal to 0" do
+    @wallet.units = 0.0
+    assert @wallet.valid?
+  end
+  
   test "units cannot be smaller than 0" do
     @wallet.units = -1
     assert_not @wallet.valid?

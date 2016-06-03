@@ -14,7 +14,7 @@
     <td > <%= number_to_currency(wallet.units*wallet.coin.value, precision: 2) %> </td>
     <td  style=<%= @colors[wallet.coin.name] %>> <%= number_with_precision(wallet.coin.variations[:day], precision: 2) %>%</td>
     <td> <%= link_to t(:sell), new_transaction_path(:type => 'sell',
-              :wallet => wallet.id), class: "btn btn-sm btn-primary" %> </td>
+              :coin_id => wallet.coin_id), class: "btn btn-sm btn-primary" %> </td>
   <% else %>
     <td > <%= number_to_currency(wallet.units, precision: 2) %> </td>
   <% end %>

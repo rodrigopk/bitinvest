@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
   def create_initial_wallets
     
       for i in 0..9
-         self.wallets.create!(units: 10.0, coin_id: Coin.all[i].id)   
+        self.wallets.create!(units: 10.0, coin_id: Coin.all[i].id)   
       end
       self.wallets.create!(units: 10000.0, coin_id: Coin.last.id)  
     
@@ -95,6 +95,15 @@ class User < ActiveRecord::Base
       return wallet if wallet.coin.is_fiat? == true
     }
     nil
+  end
+  
+  def remove_empty_wallets
+    self.wallets.each { |wallet| 
+      if wallet.units == 0
+        logger.debug "\n Destroying wallet: #{wallet.coin.name}\n"
+        wallet.destroy
+      end
+    }
   end
   
   private

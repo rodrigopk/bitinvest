@@ -1,12 +1,16 @@
 class TransactionsController < ApplicationController
   
   def new
-    
-    @wallet = Wallet.find(params[:wallet])
+    @wallet = nil
+    unless Wallet.find_by(coin_id: params[:coin_id]).nil?
+      @wallet = Wallet.find_by(coin_id: params[:coin_id])
+    else
+      @wallet = current_user.wallets.create!(units: 0.0, coin_id: params[:coin_id])   
+    end 
     @transaction = @wallet.transactions.build(units: 0.0)
     @type = params[:type]
     @fiat = @wallet.coin.value
-    @bitcoin = @fiat/(Coin.find_by symbol: 'BTC').value
+    @bitcoin = @fiat/(Coin.find_by tag: 'bitcoin').value
     if @type == 'sell'
       @title = t(:sell)
     else

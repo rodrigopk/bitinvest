@@ -3,7 +3,7 @@ class Coin < ActiveRecord::Base
   require 'open-uri'
   
   validates :name, presence: true
-  validates :tag, presence:true
+  validates :tag, presence:true, uniqueness: true
   serialize :variations
   
   def update(hash)
