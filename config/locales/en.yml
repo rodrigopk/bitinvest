@@ -49,6 +49,8 @@ en:
   market_cap: "Market cap"
   available_supply: "Available supply"
   total_value: "Total value"
+  search_placeholder: "Search currencies"
+  search: "Search"
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."

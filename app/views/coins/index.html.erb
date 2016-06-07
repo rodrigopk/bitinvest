@@ -1,6 +1,16 @@
 <% provide(:title, t(:currencies_link)) %>
 <h1><%= t(:currencies_link) %></h1>
 
+<div class="input-group">
+  <%= form_tag(coins_path, :method => "get", class:"form-inline")  do %>
+    <%= text_field_tag :search, params[:search], 
+    placeholder: t(:search_placeholder), class: 'form-control' %>
+  <% end %>
+  <span class="input-group-btn">
+    <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+  </span>
+</div>
+
 <%= will_paginate %>
 <table class="table">
   <%= render partial: 'table_header'%>

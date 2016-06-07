@@ -49,6 +49,8 @@ pt:
   market_cap: "Total de mercado"
   available_supply: "Oferta disponível"
   total_value: "Valor total"
+  search_placeholder: "Buscar moedas"
+  search: "Buscar"
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."

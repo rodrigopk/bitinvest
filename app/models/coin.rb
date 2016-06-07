@@ -21,18 +21,13 @@ class Coin < ActiveRecord::Base
     self.save!
   end
   
-  def Coin.nil_variations
-    nil_var = []
-    Coin.all.each do |coin|
-      if !coin.is_fiat? 
-        if coin.variations[:hour].nil? ||
-        coin.variations[:day].nil? ||
-        coin.variations[:week].nil?
-          nil_var.push(coin.name)
-        end
-      end
+  def Coin.search(search)
+    if search
+      Coin.where("name like ?", "%#{search}%")
+      
+    else
+      Coin.all
     end
-    return nil_var
   end
 
 end
