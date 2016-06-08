@@ -1,0 +1,29 @@
+<% provide(:title, @coin.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+          <h1>
+            <%= image_tag( "coin_icons/"+@coin.tag+".png", alt: @coin.name ) %>
+            <%= @coin.name+" ("+@coin.symbol+")" %>
+            <%= link_to t(:buy), new_transaction_path(:type => 'buy',
+              :coin_id => @coin.id), 
+              class: "btn btn-sm btn-primary" %>
+          </h1>
+    </section>
+  </aside>
+</div>
+<table class="table">
+  <tbody>
+    <%= render 'layouts/table_header_coin' %>
+    <tr>
+      <td> <%= number_to_currency(@coin.value, precision: 8) %> </td>
+      <td> <%= number_to_currency(@coin.volume, precision: 2) %> </td>
+      <td> <%= number_to_currency(@coin.market_cap, precision: 2) %> </td>
+      <td> <%= number_with_precision(@coin.available_supply, precision: 2) %> <%= @coin.symbol%></td>
+      
+      <td style=<%= @colors[:hour] %>> <%= number_with_precision(@coin.variations[:hour], precision: 2) %>%</td>
+      <td style=<%= @colors[:day] %>> <%= number_with_precision(@coin.variations[:day], precision: 2) %>%</td>
+      <td style=<%= @colors[:week] %>> <%= number_with_precision(@coin.variations[:week], precision: 2) %>%</td>
+    </tr>
+  </tbody>
+</table>

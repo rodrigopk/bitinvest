@@ -1,0 +1,22 @@
+<tr>
+  <% if !wallet.coin.is_fiat? %>
+    <td > <%= link_to image_tag( "coin_icons/"+wallet.coin.tag+".png", alt: wallet.coin.name ),
+              wallet.coin %> </td>
+    <td > <%= link_to wallet.coin.name, wallet.coin %> </td>
+  <% else %>
+    <td > <%= image_tag( "coin_icons/"+wallet.coin.tag+".png", 
+          alt: wallet.coin.name ) %> </td>
+    <td > <%= wallet.coin.name %> </td>
+  <% end %>
+  <td > <%= wallet.coin.symbol %> </td>		
+  <% if !wallet.coin.is_fiat? %>
+    <td > <%= number_with_precision(wallet.units, precision: 8) %> </td>
+    <td > <%= number_to_currency(wallet.units*wallet.coin.value, precision: 2) %> </td>
+    <td  style=<%= @colors[wallet.coin.name] %>> <%= number_with_precision(wallet.coin.variations[:day], precision: 2) %>%</td>
+    <td> <%= link_to t(:sell), new_transaction_path(:type => 'sell',
+              :coin_id => wallet.coin_id), class: "btn btn-sm btn-primary" %> </td>
+  <% else %>
+    <td > <%= number_to_currency(wallet.units, precision: 2) %> </td>
+  <% end %>
+</tr>
+

@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+  
+cryptocoin:
+  name: "Cryptocoin"
+  symbol: "CRY"
+  tag: "cryptocoin"
+  value: 1.5
+  volume: 1.5
