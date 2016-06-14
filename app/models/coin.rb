@@ -7,10 +7,11 @@ class Coin < ActiveRecord::Base
   serialize :variations
   
   def update(hash)
-    if Rails.env.development?
-      File.open('log/coin_update.log', 'a+') { |file| file.write("updating coin :"+self.name+"\n") }
-    end
-
+    logfile  = (Rails.env == "development") ? "log/coin_update.log" : "#{OPENSHIFT_LOG_DIR}/coin_update.log"
+    
+    File.open(logfile, 'a+') { |file| 
+        file.write("updating coin :"+self.name+" - #{hash["price_usd"]}\n") 
+    }
     self.value = hash["price_usd"]
     self.volume = hash["24h_volume_usd"]
     self.market_cap = hash["market_cap_usd"]

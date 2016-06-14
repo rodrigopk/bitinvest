@@ -4,10 +4,9 @@ namespace :data_updates do
   
   desc "Updates cryptocoins values" 
   task :cryptocoins_update_task  => :environment do
-    if Rails.env.development?
-      File.open('log/coin_update.log', 'w') { |file| file.write("start\n") }
-      t_start = Time.now
-    end
+    logfile  = (Rails.env == "development") ? "log/coin_update.log" : "#{OPENSHIFT_LOG_DIR}/coin_update.log"
+    File.open(logfile, 'w') { |file| file.write("start\n") }
+    t_start = Time.now
     coins_array = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"))
     coins_array.each do |hash|
       coin = Coin.find_by(tag: hash["id"])
@@ -18,12 +17,10 @@ namespace :data_updates do
         end
       end
     end
-    if Rails.env.development?
-      t_end = Time.now
-      File.open('log/coin_update.log', 'a+') { |file| 
-        file.write("Elapsed time: #{(t_end-t_start)/1.minute} minutes\n") 
-      }
-    end
+    t_end = Time.now
+    File.open(logfile, 'a+') { |file| 
+      file.write("Elapsed time: #{(t_end-t_start)/1.minute} minutes\n") 
+    }
   end
   
   desc "Fetch cryptocoins from API" 
