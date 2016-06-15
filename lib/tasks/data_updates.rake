@@ -1,3 +1,4 @@
+require 'open-uri'
 require_relative '../../app/workers/cryptocoins_worker'
 
 namespace :data_updates do
