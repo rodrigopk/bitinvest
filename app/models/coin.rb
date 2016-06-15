@@ -7,7 +7,7 @@ class Coin < ActiveRecord::Base
   serialize :variations
   
   def update(hash)
-    logfile  = (Rails.env == "development") ? "log/coin_update.log" : "#{OPENSHIFT_LOG_DIR}/coin_update.log"
+    logfile  = (Rails.env == "development") ? "log/coin_update.log" : "#{ENV[OPENSHIFT_LOG_DIR]}/coin_update.log"
     
     File.open(logfile, 'a+') { |file| 
         file.write("updating coin :"+self.name+" - #{hash["price_usd"]}\n") 
