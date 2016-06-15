@@ -5,7 +5,7 @@ namespace :data_updates do
   
   desc "Updates cryptocoins values" 
   task :cryptocoins_update_task  => :environment do
-    logfile  = (Rails.env == "development") ? "log/coin_update.log" : "#{ENV[OPENSHIFT_LOG_DIR]}/coin_update.log"
+    logfile  = (Rails.env == "development") ? "log/coin_update.log" : "#{ENV["OPENSHIFT_LOG_DIR"]}/coin_update.log"
     File.open(logfile, 'w') { |file| file.write("start\n") }
     t_start = Time.now
     coins_array = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"))
