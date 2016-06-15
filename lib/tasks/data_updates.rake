@@ -13,7 +13,8 @@ namespace :data_updates do
       coin = Coin.find_by(tag: hash["id"])
       if !coin.nil?
         if !coin.is_fiat? 
-          CryptocoinsWorker.perform_async(coin.id,hash)
+          #CryptocoinsWorker.perform_async(coin.id,hash)
+          coin.update(hash)
           sleep 1
         end
       end
