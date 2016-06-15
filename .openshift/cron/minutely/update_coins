@@ -2,7 +2,9 @@
 
 minute=$(date +%M)
 if [ $(($minute % 15)) -eq 0 ]; then
-  echo "--- updating coin values  ----"
+  echo "--- updating coin values ----"
+  cd $OPENSHIFT_REPO_DIR
+  pwd
   bundle exec rake data_updates:cryptocoins_update_task RAILS_ENV="production"
   date >> ${OPENSHIFT_LOG_DIR}/coin_update.log
 fi
