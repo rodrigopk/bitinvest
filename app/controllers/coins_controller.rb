@@ -20,7 +20,7 @@ class CoinsController < ApplicationController
         @colors[coin.name] = color
       end
     end
-    @coins = Coin.search(params[:search]).paginate(page: params[:page])
+    @coins = Coin.search(params[:search]).paginate(page: params[:page]).sort_by{|e| e[:id]}
   end
   
   def show 
