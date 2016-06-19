@@ -16,6 +16,7 @@ class Coin < ActiveRecord::Base
     self.volume = hash["24h_volume_usd"]
     self.market_cap = hash["market_cap_usd"]
     self.available_supply = hash["available_supply"]
+    self.rank = hash["rank"]
     self.variations = { :hour => hash["percent_change_1h"]||0.0,
                         :day => hash["percent_change_24h"]||0.0,
                         :week => hash["percent_change_7d"]||0.0 }
@@ -24,10 +25,10 @@ class Coin < ActiveRecord::Base
   
   def Coin.search(search)
     if search
-      Coin.where("name like ?", "%#{search}%")
+      Coin.where("name like ?", "%#{search}%").order("rank")
       
     else
-      Coin.all
+      Coin.all.order("rank")
     end
   end
 

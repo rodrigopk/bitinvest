@@ -14,6 +14,7 @@ coins_array = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"))
                             volume: coin["24h_volume_usd"],
                             market_cap: coin["market_cap_usd"],
                             available_supply: coin["available_supply"],
+                            rank: coin["rank"],
                             is_fiat: false)
       new_coin.variations = { :hour => coin["percent_change_1h"]||0.0,
                               :day => coin["percent_change_24h"]||0.0,

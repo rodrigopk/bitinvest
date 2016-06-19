@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619134303) do
+ActiveRecord::Schema.define(version: 20160619144817) do
 
   create_table "coins", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160619134303) do
     t.float    "market_cap"
     t.float    "available_supply"
     t.string   "tag"
+    t.integer  "rank"
   end
 
   add_index "coins", ["tag"], name: "index_coins_on_tag", unique: true
