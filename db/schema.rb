@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601124202) do
+ActiveRecord::Schema.define(version: 20160619134303) do
 
   create_table "coins", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160601124202) do
     t.float    "available_supply"
     t.string   "tag"
   end
+
+  add_index "coins", ["tag"], name: "index_coins_on_tag", unique: true
 
   create_table "transactions", force: :cascade do |t|
     t.float    "units"

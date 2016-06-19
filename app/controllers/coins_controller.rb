@@ -21,7 +21,6 @@ class CoinsController < ApplicationController
       end
     end
     @coins = Coin.search(params[:search]).paginate(page: params[:page])
-    @coins.sort_by{|e| e[:id]}
   end
   
   def show 
