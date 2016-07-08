@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708133754) do
+ActiveRecord::Schema.define(version: 20160708141833) do
 
   create_table "coin_average_statistics", force: :cascade do |t|
     t.integer  "coin_id"
     t.float    "total_volume"
     t.float    "total_operations"
-    t.float    "avg_coin_views"
+    t.float    "total_coin_views"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

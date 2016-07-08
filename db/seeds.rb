@@ -20,6 +20,11 @@ coins_array = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"))
                               :day => coin["percent_change_24h"]||0.0,
                               :week => coin["percent_change_7d"]||0.0 }   
       new_coin.save!
+      #creating coin statistics
+      new_coin_statistics = CoinAverageStatistic.new(total_volume:0,
+                                                      total_operations:0,
+                                                      total_coin_views:0)
+      new_coin.coin_average_statistic = new_coin_statistics
     end     
 
 Coin.create(name: "Dolar",
