@@ -36,6 +36,7 @@ class CoinsController < ApplicationController
       end
       @colors[key] = color
     end
+    @coin.coin_average_statistic.increment!(:total_coin_views)
   end
   
   
