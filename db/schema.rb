@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619144817) do
+ActiveRecord::Schema.define(version: 20160708133754) do
+
+  create_table "coin_average_statistics", force: :cascade do |t|
+    t.integer  "coin_id"
+    t.float    "total_volume"
+    t.float    "total_operations"
+    t.float    "avg_coin_views"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "coin_average_statistics", ["coin_id"], name: "index_coin_average_statistics_on_coin_id"
 
   create_table "coins", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +37,9 @@ ActiveRecord::Schema.define(version: 20160619144817) do
     t.float    "available_supply"
     t.string   "tag"
     t.integer  "rank"
+    t.integer  "daily_coin_views"
+    t.float    "daily_volume"
+    t.float    "daily_operations"
   end
 
   add_index "coins", ["tag"], name: "index_coins_on_tag", unique: true
@@ -47,14 +61,25 @@ ActiveRecord::Schema.define(version: 20160619144817) do
     t.string   "activation_digest"
     t.boolean  "activated"
     t.datetime "activated_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.float    "daily_volume"
+    t.float    "daily_transactions"
+    t.float    "daily_wallet_views"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "users_average_statistics", force: :cascade do |t|
+    t.float    "avg_volume"
+    t.float    "avg_transactions"
+    t.float    "avg_wallet_views"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "wallets", force: :cascade do |t|
     t.float    "units"

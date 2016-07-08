@@ -65,6 +65,8 @@ pt:
   account_activated: "Conta ativada com êxito."
   invalid_link: "Link de ativação inválido."
   email_sent_message: "Email enviado com instruções para redefinição de senha para "
+  mail_title_activation: "BitInvest - Ativação de conta"
+  mail_title_reset: "BitInvest - Redefinição de senha"
   
   will_paginate:
     previous_label: "Anterior"

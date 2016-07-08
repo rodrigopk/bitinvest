@@ -1,6 +1,7 @@
 class Coin < ActiveRecord::Base
   
   require 'open-uri'
+  has_one :coin_average_statistic
   
   validates :name, presence: true
   validates :tag, presence:true, uniqueness: true

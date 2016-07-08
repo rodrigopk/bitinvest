@@ -65,6 +65,8 @@ en:
   account_activated: "Account activated with success."
   invalid_link: "Invalid activation link."
   email_sent_message: "Email with password reset instructions sent to "
+  mail_title_activation: "BitInvest - Account activation"
+  mail_title_reset: "BitInvest - Password reset"
   
   will_paginate:
     previous_label: "Next"

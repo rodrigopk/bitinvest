@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   
   has_many :wallets, dependent: :destroy
   
@@ -57,6 +58,7 @@ class User < ActiveRecord::Base
 
   # Sends activation email.
   def send_activation_email
+    #http://www.leemunroe.com/send-automated-email-ruby-rails-mailgun/
     UserMailer.account_activation(self).deliver_now
   end
   
