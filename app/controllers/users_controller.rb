@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       end
       
     }
+    @user.increment!(:daily_wallet_views)
   end
   
   def new

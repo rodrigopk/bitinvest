@@ -39,9 +39,13 @@ class TransactionsController < ApplicationController
       @fiat_wallet.update(units: @fiat_units)
       @source_wallet.update(units: @source_units)
       
-      #statistics
+      #coin statistics
       @coin.coin_average_statistic.total_volume += @fiat_units.abs
       @coin.coin_average_statistic.increment!(:total_operations)
+      
+      #user statistics
+      current_user.daily_volume += @fiat_units.abs
+      current_user.increment!(:daily_transactions)
       
       redirect_to current_user  
     end
