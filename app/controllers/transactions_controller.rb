@@ -55,11 +55,7 @@ class TransactionsController < ApplicationController
   
   private
     def get_fiat_value
-      Coin.all.each do  |coin|
-        if coin.is_fiat?
-          return coin.value
-        end
-      end
+      Coin.last.value
     end
   
 end
