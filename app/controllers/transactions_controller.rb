@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
       @source_wallet.update(units: @source_units)
       
       #coin statistics
-      @source_wallet.coin.coin_average_statistic.total_volume += @fiat_units.abs
+      @source_wallet.coin.coin_average_statistic.total_volume += (@units*@source_wallet.coin.value).abs
       @source_wallet.coin.coin_average_statistic.increment!(:total_operations)
       
       #user statistics
