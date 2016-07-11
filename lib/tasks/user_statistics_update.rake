@@ -12,9 +12,7 @@ namespace :user_statistics do
       new_statistic.avg_transactions += user.daily_transactions / User.all.count
       new_statistic.avg_wallet_views += user.daily_wallet_views / User.all.count
       
-      user.daily_volume = 0
-      user.daily_transactions = 0
-      user.daily_wallet_views = 0
+      user.update(daily_volume:0,daily_transactions:0,daily_wallet_views:0)
     end
     new_statistic.save!
   end
