@@ -37,13 +37,15 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+  # SMTP settings for mailgun
+  # https://launchschool.com/blog/handling-emails-in-rails
+  ActionMailer::Base.smtp_settings = {
+    :port           => 587,
+    :address        => "smtp.mailgun.org",
+    :domain         => Rails.application.secrets[:mailgun_user_name],
+    :user_name      => Rails.application.secrets[:mailgun_username],
+    :password       => Rails.application.secrets[:mailgun_password],
     :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "bitinvestapp.com.mailgun.org",
-    :user_name => "postmaster@bitinvestapp.com.mailgun.org",
-    :password => "MYPASSWORD"
   }
 
   # Raises error for missing translations
