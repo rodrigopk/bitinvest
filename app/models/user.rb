@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   
   has_many :wallets, dependent: :destroy
+  after_initialize :init
   
   attr_accessor :remember_token, :activation_token
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -110,6 +111,13 @@ class User < ActiveRecord::Base
   
   private
 
+    #initialize statistic fields
+    def init
+      self.daily_volume ||= 0.0
+      self.daily_transactions ||= 0.0
+      self.daily_wallet_views ||= 0
+    end
+    
     # Converts email to all lower-case.
     def downcase_email
       self.email = email.downcase
