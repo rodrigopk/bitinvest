@@ -33,4 +33,9 @@ class Coin < ActiveRecord::Base
     end
   end
 
+  def bitcoin_value
+    bitcoin_value = Coin.first.value
+    return self.value/bitcoin_value
+  end
+
 end

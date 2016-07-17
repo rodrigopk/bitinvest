@@ -1,6 +1,7 @@
 <% if logged_in? %>
-	<%= render 'layouts/general_ranking',users: @users%>
+  <h1> <%= t(:ranking) %> </h1>	
+  <%= render 'layouts/general_ranking',users: @users%>
 <% else %>
-	<%= render 'layouts/home_jumbotron'%>
+  <%= render 'layouts/home_jumbotron'%>
 <% end %>
 

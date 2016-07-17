@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "--- updating coin values ----"
+cd $OPENSHIFT_REPO_DIR
+bundle exec rake user_statistics:hourly_update RAILS_ENV="production"

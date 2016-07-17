@@ -1,11 +1,9 @@
 <div class="center">
-<%= will_paginate(users) %>
-	<table class="table table-condensed">
+	<table class="table">
 	  <thead>
 		  <tr>
 		    <th class="col-sm-1"> # </th>
-		    <th class="col-sm-1"><%= t(:user) %> </th>
-		    <th class="col-md-6"> </th>
+		    <th class="col-sm-4"><%= t(:user) %> </th>
 		    <th class="col-md-3"><%= t(:value) %> ($)</th>
 		    <th class="col-md-3"><%= t(:value) %> (฿)</th>
 		    <th class="col-sm-2">% 1h</th>
@@ -16,15 +14,13 @@
 	  	<% users.each_with_index do |user,index| %>
 	  	  <tr>
 	  	  	<th> <%= index+1 %> </th>
-	  	  	<th> <%= gravatar_for user, size:25 %> </th>
-	  	  	<th> <%= user.name %> </th>
-	  	  	<th>  $</th>
-	  	  	<th>  ฿</th>
-	  	  	<th>  %</th>
-	  	  	<th>  %</th>
+	  	  	<td> <%= gravatar_for user, size:25 %> <%= user.name %> </tD>
+	  	  	<td> <%= number_to_currency(user.total_value_fiat, precision:2) %> </td>
+	  	  	<td> ฿<%= number_with_precision(user.total_value_bitcoin, precision:8) %></td>
+	  	  	<td> <%= user.value_var_1h %> %</td>
+	  	  	<td> <%= user.value_var_24h %> %</td>
 	  	  </tr>
 	  	<% end %>
 	  </tbody>
 	</table>
-<%= will_paginate(users) %>
 </div>

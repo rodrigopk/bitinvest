@@ -30,7 +30,9 @@ table {
   input {
     width: 150px;
   }
-  
+  th,td {
+    text-align: left;
+  }
 }
 
 .center {

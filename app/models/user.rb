@@ -108,6 +108,22 @@ class User < ActiveRecord::Base
       end
     }
   end
+
+  def total_value_fiat
+    value = 0
+    self.wallets.each { |wallet|
+      value += wallet.coin.value*wallet.units
+    }
+    return value
+  end
+
+  def total_value_bitcoin
+    value = 0
+    self.wallets.each { |wallet|
+      value += wallet.coin.bitcoin_value*wallet.units
+    }
+    return value
+  end
   
   private
 
