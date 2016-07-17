@@ -1,9 +1,6 @@
-<div class="center jumbotron">
-  <h1><%= t :home_header %></h1>
+<% if logged_in? %>
+	<%= render 'layouts/general_ranking',users: @users%>
+<% else %>
+	<%= render 'layouts/home_jumbotron'%>
+<% end %>
 
-  <h2>
-    <%= t :home_subtext %>
-  </h2>
-
-  <%= link_to t(:signup_button), signup_path, class: "btn btn-lg btn-primary" %>
-</div>

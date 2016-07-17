@@ -1,4 +1,5 @@
 pt:
+  user: "Usuário"
   hello: "Olá"
   home_subtext: "O simulador de investimentos em cryptocoins"
   signup_button: "Cadastre-se agora"

@@ -1,4 +1,5 @@
 en:
+  user: "User"
   hello: "Hello"
   home_header: "Welcome to BitInvest"
   home_subtext: "The cryptocoin investments simulator"

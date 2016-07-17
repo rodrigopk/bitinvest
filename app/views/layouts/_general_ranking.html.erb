@@ -1,0 +1,30 @@
+<div class="center">
+<%= will_paginate(users) %>
+	<table class="table table-condensed">
+	  <thead>
+		  <tr>
+		    <th class="col-sm-1"> # </th>
+		    <th class="col-sm-1"><%= t(:user) %> </th>
+		    <th class="col-md-6"> </th>
+		    <th class="col-md-3"><%= t(:value) %> ($)</th>
+		    <th class="col-md-3"><%= t(:value) %> (฿)</th>
+		    <th class="col-sm-2">% 1h</th>
+		    <th class="col-sm-2">% 24h</th>
+		  </tr>
+	  <thead>
+	  <tbody>
+	  	<% users.each_with_index do |user,index| %>
+	  	  <tr>
+	  	  	<th> <%= index+1 %> </th>
+	  	  	<th> <%= gravatar_for user, size:25 %> </th>
+	  	  	<th> <%= user.name %> </th>
+	  	  	<th>  $</th>
+	  	  	<th>  ฿</th>
+	  	  	<th>  %</th>
+	  	  	<th>  %</th>
+	  	  </tr>
+	  	<% end %>
+	  </tbody>
+	</table>
+<%= will_paginate(users) %>
+</div>
