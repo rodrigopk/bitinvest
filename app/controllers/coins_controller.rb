@@ -5,7 +5,8 @@ class CoinsController < ApplicationController
   
   def index
     @colors = {}
-    Coin.search(params[:search]).paginate(page: params[:page]).each do |coin|
+    @coins = Coin.search(params[:search]).paginate(page: params[:page])
+    @coins.each do |coin|
       if !coin.is_fiat?
         if coin.variations.nil?
           logger.debug "nil variation: #{coin.name}"
@@ -20,7 +21,6 @@ class CoinsController < ApplicationController
         @colors[coin.name] = color
       end
     end
-    @coins = Coin.search(params[:search]).paginate(page: params[:page])
   end
   
   def show 
