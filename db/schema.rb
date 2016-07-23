@@ -58,18 +58,18 @@ ActiveRecord::Schema.define(version: 20160717201046) do
     t.string   "activation_digest"
     t.boolean  "activated"
     t.datetime "activated_at"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.float    "daily_volume"
     t.float    "daily_transactions"
     t.float    "daily_wallet_views"
-    t.decimal  "value_last_1h",      precision: 2, default: 0
-    t.decimal  "value_last_24h",     precision: 2, default: 0
-    t.decimal  "value_var_1h",       precision: 2, default: 0
-    t.decimal  "value_var_24h",      precision: 2, default: 0
+    t.decimal  "value_last_1h",      default: 0.0
+    t.decimal  "value_last_24h",     default: 0.0
+    t.decimal  "value_var_1h",       default: 0.0
+    t.decimal  "value_var_24h",      default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
