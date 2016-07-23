@@ -36,10 +36,14 @@ namespace :user_statistics do
       current_wallet_var = (user.value_last_1h == 0) ? 
                           0 : ((current_wallet_value/user.value_last_1h) - 1)*100
 
-      File.open(logfile, 'a+') { |file| file.write("current_wallet_value : #{current_wallet_value}\n") }
-      File.open(logfile, 'a+') { |file| file.write("current_wallet_var : #{current_wallet_var}\n") }
-      
+      File.open(logfile, 'a+') { |file| file.write("before value : #{user.value_last_1h}\n") }
+      File.open(logfile, 'a+') { |file| file.write("before var : #{user.value_var_1h}\n") }
+
       user.update(value_last_1h:current_wallet_value,value_var_1h:current_wallet_var)
+
+      File.open(logfile, 'a+') { |file| file.write("after value : #{user.value_last_1h}\n") }
+      File.open(logfile, 'a+') { |file| file.write("after var : #{user.value_var_1h}\n") }
+
     }
     File.open(logfile, 'a+') { |file|  file.write("end : #{Time.now}\n") }
   end
