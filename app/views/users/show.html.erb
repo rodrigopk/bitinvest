@@ -9,6 +9,9 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <% if !@user.daily_question_answered? %>
+      <%= render 'layouts/quiz_panel' %>
+    <% end %>
     <table class="table">
       <%= render 'layouts/wallet_header_crypto' %>
       <h3><%= t(:my_wallets)%></h3>

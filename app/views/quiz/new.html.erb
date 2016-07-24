@@ -1,0 +1,18 @@
+<h1> <%= @question.title %> </h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@quiz) do |f| %>
+      <div class="form-group">
+        <%= f.radio_button :correct, @question.answers[0].text %> <%= @question.answers[0].text%><br />
+        <%= f.radio_button :correct, @question.answers[1].text %> <%= @question.answers[1].text%><br />
+        <%= f.radio_button :correct, @question.answers[2].text %> <%= @question.answers[2].text%><br />
+        <%= f.radio_button :correct, @question.answers[3].text %> <%= @question.answers[3].text%><br />
+        <%= f.radio_button :correct, @question.answers[4].text %> <%= @question.answers[4].text%><br />
+      </div>
+      <input name="question" type="hidden" value=<%= @question.id %> />         
+      <div class="form-group">
+        <%= f.submit t(:answer), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

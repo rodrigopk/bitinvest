@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717201046) do
+ActiveRecord::Schema.define(version: 20160723185437) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "text"
+    t.boolean  "correct"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "coin_average_statistics", force: :cascade do |t|
     t.integer  "coin_id"
@@ -41,6 +49,25 @@ ActiveRecord::Schema.define(version: 20160717201046) do
 
   add_index "coins", ["tag"], name: "index_coins_on_tag", unique: true
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "right_answers"
+    t.integer  "wrong_answers"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.boolean  "correct"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "quizzes", ["question_id"], name: "index_quizzes_on_question_id"
+  add_index "quizzes", ["user_id"], name: "index_quizzes_on_user_id"
+
   create_table "transactions", force: :cascade do |t|
     t.float    "units"
     t.integer  "wallet_id"
@@ -58,18 +85,19 @@ ActiveRecord::Schema.define(version: 20160717201046) do
     t.string   "activation_digest"
     t.boolean  "activated"
     t.datetime "activated_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.float    "daily_volume"
     t.float    "daily_transactions"
     t.float    "daily_wallet_views"
-    t.decimal  "value_last_1h",      default: 0.0
-    t.decimal  "value_last_24h",     default: 0.0
-    t.decimal  "value_var_1h",       default: 0.0
-    t.decimal  "value_var_24h",      default: 0.0
+    t.decimal  "value_last_1h",           default: 0.0
+    t.decimal  "value_last_24h",          default: 0.0
+    t.decimal  "value_var_1h",            default: 0.0
+    t.decimal  "value_var_24h",           default: 0.0
+    t.boolean  "daily_question_answered", default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

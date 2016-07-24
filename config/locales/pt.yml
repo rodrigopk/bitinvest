@@ -58,6 +58,11 @@ pt:
   what_crypto: "O que são cryptocoins?"
   know_more: "Ainda tenho dúvidas sobre Bitcoins e Altcoins."
   bitcoin_faq: "https://bitcoin.org/pt_BR/faq"
+  answer: "Enviar resposta"
+  quiz_available: "Responda a pergunta diária e ganhe $500 no simulador!" 
+  quiz_button: "Responder pergunta"
+  quiz_success: 'Resposta certa! Adicionando $500 à sua carteira.'
+  quiz_failure: 'Resposta errada! Tente novamente amanhã.'
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."

@@ -1,3 +1,4 @@
+#me :)
 User.create!(name:  "Rodrigo Vasconcelos",
              email: "rodrigopk@gmail.com",
              password:              "foobar",
@@ -5,6 +6,7 @@ User.create!(name:  "Rodrigo Vasconcelos",
              activated: true,
              activated_at: Time.zone.now)             
 
+#coins
 coins_array = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"))
     coins_array.each do |coin|
       new_coin = Coin.new(name: coin["name"],
@@ -26,7 +28,6 @@ coins_array = JSON.load(open("https://api.coinmarketcap.com/v1/ticker/"))
                                                       total_coin_views:0)
       new_coin.coin_average_statistic = new_coin_statistics
     end     
-
 Coin.create(name: "Dolar",
             tag: "dolar",
             symbol: "USD", 
@@ -36,9 +37,19 @@ Coin.create(name: "Dolar",
             available_supply:0,
             is_fiat: true) 
 
-
+#wallets
 user = User.first 
 for i in 0..9
    user.wallets.create!(units: 10.0, coin_id: Coin.all[i].id)   
 end
-user.wallets.create!(units: 10000.0, coin_id: Coin.last.id)   
+user.wallets.create!(units: 10000.0, coin_id: Coin.last.id)  
+
+
+#questions
+Question.create(title: "Pergunta teste")
+Question.first.answers.create!(text: "resp 1",correct: false)
+Question.first.answers.create!(text: "resp 2",correct: false)
+Question.first.answers.create!(text: "resp 3",correct: true)
+Question.first.answers.create!(text: "resp 4",correct: false)
+Question.first.answers.create!(text: "resp 5",correct: false)
+

@@ -386,3 +386,6 @@ DEPENDENCIES
   web-console (= 2.0.0.beta3)
   whenever
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.12.5

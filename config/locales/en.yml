@@ -58,6 +58,11 @@ en:
   what_crypto: "what are cryptocoins?"
   know_more: "I still have questions about Bitcoin and Altcoins."
   bitcoin_faq: "https://bitcoin.org/en/faq"
+  answer: "Submit answer"
+  quiz_available: "Answer to the daily quiz and win $500 in game!"
+  quiz_button: "Take quiz"
+  quiz_success: "Correct answer! Adding $500 to your wallet." 
+  quiz_failure: "You chose poorly! Try again tomorrow." 
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."

@@ -4,5 +4,6 @@ class AddTotalValueToUsers < ActiveRecord::Migration
   	add_column :users, :value_last_24h, :decimal, :default => 0
   	add_column :users, :value_var_1h, :decimal, :default => 0
   	add_column :users, :value_var_24h, :decimal, :default => 0
+  	add_column :users, :daily_question_answered, :boolean, :default => false
   end
 end

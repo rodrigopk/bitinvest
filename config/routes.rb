@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get     'quizzes'   => 'quiz#new'
+  post    'quizzes'   => 'quiz#create'
   
   resources :users
   resources :coins,               only: [:index, :show]
