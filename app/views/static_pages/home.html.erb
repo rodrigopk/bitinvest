@@ -1,7 +1,10 @@
-<% if logged_in? %>
-  <h1> <%= t(:ranking) %> </h1>	
-  <%= render 'layouts/general_ranking',users: @users%>
-<% else %>
-  <%= render 'layouts/home_jumbotron'%>
-<% end %>
 
+<div class="container-fluid">
+	<div class="filler"></div>
+	<video autoplay loop poster="bg_video_poster.png" class="bg_video">
+		<source src="bg_video.mp4" type="video/mp4">
+		<source src="bg_video.webm" type="video/webm">
+	</video>
+</div>
+<%= render 'layouts/home_jumbotron'%>
+<%= render 'layouts/general_ranking',users: @users%>
