@@ -37,6 +37,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
   # SMTP settings for mailgun
   # https://launchschool.com/blog/handling-emails-in-rails
   ActionMailer::Base.smtp_settings = {

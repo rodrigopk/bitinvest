@@ -7,4 +7,6 @@
 	</video>
 </div>
 <%= render 'layouts/home_jumbotron'%>
-<%= render 'layouts/general_ranking',users: @users%>
+<% if logged_in? %>
+	<%= render 'layouts/general_ranking',users: @users%>
+<% end %>

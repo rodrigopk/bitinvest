@@ -5,6 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "http://bitinvest-rodrigopk.rhcloud.com" }
   # SMTP settings for mailgun
   ActionMailer::Base.smtp_settings = {
     :port           => 587,
