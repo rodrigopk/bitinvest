@@ -94,10 +94,7 @@ class User < ActiveRecord::Base
   end
   
   def get_fiat_wallet
-    self.wallets.each { |wallet|
-      return wallet if wallet.coin.is_fiat? == true
-    }
-    nil
+    self.wallets.last
   end
   
   def remove_empty_wallets
@@ -123,6 +120,10 @@ class User < ActiveRecord::Base
       value += wallet.coin.bitcoin_value*wallet.units
     }
     return value
+  end
+
+  def reward
+    self.get_fiat_wallet.increment!(:units, 500)
   end
   
   private

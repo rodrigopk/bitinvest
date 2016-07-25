@@ -19,6 +19,8 @@ class QuizController < ApplicationController
 			flash[:danger] = t(:quiz_failure)
 		end
 		current_user.update_attribute(:daily_question_answered,true)
+		current_user.reward
+		
 		redirect_to current_user
 	end
 end
