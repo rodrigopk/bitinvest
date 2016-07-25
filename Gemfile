@@ -24,6 +24,8 @@ gem 'sinatra',                 '>= 1.3.0', :require => nil #interface
 gem 'sidekiq-middleware' #handle locks
 gem 'http_accept_language'
 gem 'faraday'
+gem 'rest-client', '2.0'
+
 
 group :development, :test do
   gem 'sqlite3',               '1.3.9'
