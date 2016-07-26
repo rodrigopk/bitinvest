@@ -12,15 +12,15 @@ namespace :user_statistics do
     User.all.each do |user|
       File.open(logfile, 'a+') { |file| file.write("collecting from user : #{user.name}\n") }
 
-      new_statistic.avg_volume += user.daily_volume / User.all.count
-      new_statistic.avg_transactions += user.daily_transactions / User.all.count
-      new_statistic.avg_wallet_views += user.daily_wallet_views / User.all.count
+      new_statistic.avg_volume += user.daily_volume.to_f / User.count.to_f
+      new_statistic.avg_transactions += user.daily_transactions.to_f / User.count.to_f
+      new_statistic.avg_wallet_views += user.daily_wallet_views.to_f / User.count.to_f
       
       current_wallet_value = user.total_value_fiat
       current_wallet_var = (user.value_last_24h == 0) ? 
-                          0 : ((current_wallet_value/user.value_last_24h) - 1)*100
+                          0 : ((current_wallet_value.to_f/user.value_last_24h.to_f) - 1)*100
     
-      File.open(logfile, 'a+') { |file| file.write(" (#{current_wallet_value}/#{user.value_last_24h} -1)*100 = #{current_wallet_var}\n") }                          
+      File.open(logfile, 'a+') { |file| file.write(" (#{current_wallet_value.to_f}/#{user.value_last_24h.to_f} -1)*100 = #{current_wallet_var}\n") }                          
       
       user.update(daily_volume:0,daily_transactions:0,daily_wallet_views:0,
                   value_last_24h:current_wallet_value.round(2),
@@ -47,7 +47,7 @@ namespace :user_statistics do
 
       current_wallet_value = user.total_value_fiat
       current_wallet_var = (user.value_last_1h == 0) ? 
-                          0 : ((current_wallet_value/user.value_last_1h) - 1)*100
+                          0 : ((current_wallet_value.to_f/user.value_last_1h.to_f) - 1)*100
 
       File.open(logfile, 'a+') { |file| file.write(" (#{current_wallet_value}/#{user.value_last_1h} -1)*100 = #{current_wallet_var}\n") }
 

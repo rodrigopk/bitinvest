@@ -1,7 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
   	if logged_in?
-  	  @users = User.all[0..9].sort_by{|user| user.total_value_fiat}
+  		#Coin.order(:rank)[0..9]
+  	  @users = User.all.sort_by{|user| user.total_value_fiat}[0..9]
   	end
   end
 

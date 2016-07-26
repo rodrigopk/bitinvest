@@ -81,11 +81,11 @@ class User < ActiveRecord::Base
   end
   
   def create_initial_wallets
-    
-      for i in 0..9
-        self.wallets.create!(units: 10.0, coin_id: Coin.all[i].id)   
-      end
-      self.wallets.create!(units: 10000.0, coin_id: Coin.last.id)  
+
+    Coin.order(:rank)[0..9].each do |coin|
+       self.wallets.create!(units: 10.0, coin_id: coin.id)   
+    end
+    self.wallets.create!(units: 10000.0, coin_id: Coin.last.id)  
     
   end
   
@@ -94,7 +94,11 @@ class User < ActiveRecord::Base
   end
   
   def get_fiat_wallet
-    self.wallets.last
+    self.wallets.each do |wallet|
+      if wallet.coin.is_fiat?
+        return wallet
+      end
+    end
   end
   
   def remove_empty_wallets

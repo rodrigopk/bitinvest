@@ -35,12 +35,13 @@ Coin.create(name: "Dolar",
             volume: 0,
             market_cap:0,
             available_supply:0,
-            is_fiat: true) 
+            is_fiat: true,
+            rank: 9999) 
 
 #wallets
 user = User.first 
-for i in 0..9
-   user.wallets.create!(units: 10.0, coin_id: Coin.all[i].id)   
+Coin.order(:rank)[0..9].each do |coin|
+   user.wallets.create!(units: 10.0, coin_id: coin.id)   
 end
 user.wallets.create!(units: 10000.0, coin_id: Coin.last.id)  
 
