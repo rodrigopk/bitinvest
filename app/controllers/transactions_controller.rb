@@ -20,31 +20,42 @@ class TransactionsController < ApplicationController
   end
   
   def create
-    @source_wallet = Wallet.find(params[:wallet_id])
-    @fiat_wallet = @source_wallet.user.get_fiat_wallet
-    @units = 0
+    index = 0
+    current_user.wallets.each  { |wallet|
+      if wallet.id == params[:wallet_id].to_i
+        break
+      else
+        index = index+1 
+      end
+    }
+
+    fiat_wallet = current_user.get_fiat_wallet
+    units = 0
     if params[:type] == 'sell'
-      @units = -(params[:units].to_f)
+      units = -(params[:units].to_f)
     else
-      @units = params[:units].to_f
+      units = params[:units].to_f
     end
-    @fiat_units = @fiat_wallet.units+(-1*@units*@source_wallet.coin.value)
-    @source_units = @source_wallet.units+@units
     
-    if ( params[:type] == 'sell' && @source_units.abs > @source_wallet.units.abs ) ||
-        ( params[:type] == 'buy' && @fiat_units.abs > @fiat_wallet.units.abs )
+    fiat_units = fiat_wallet.units+(-1*units*current_user.wallets[index].coin.value)
+    source_units = current_user.wallets[index].units+units
+
+    if ( params[:type] == 'sell' && source_units.abs > current_user.wallets[index].units.abs ) ||
+        ( params[:type] == 'buy' && fiat_units.abs > fiat_wallet.units.abs )
       flash[:danger] = t(:insufficient)
-      redirect_to new_transaction_path(:type => @type,:wallet => @source_wallet.id)
+      redirect_to new_transaction_path(:type => @type,:wallet => current_user.wallets[index].id)
     else
-      @fiat_wallet.update(units: @fiat_units)
-      @source_wallet.update(units: @source_units)
+      fiat_wallet.update_attribute(:units,fiat_units)
+      current_user.wallets[index].update_attribute(:units,source_units)
       
       #coin statistics
-      @source_wallet.coin.coin_average_statistic.total_volume += (@units*@source_wallet.coin.value).abs
-      @source_wallet.coin.coin_average_statistic.increment!(:total_operations)
+      current_user.wallets[index].coin.coin_average_statistic.update_attribute(:total_volume,
+                        current_user.wallets[index].coin.coin_average_statistic.total_volume+(units*current_user.wallets[index].coin.value).abs)
+      current_user.wallets[index].coin.coin_average_statistic.increment!(:total_operations)
       
       #user statistics
-      current_user.daily_volume += (@units*@source_wallet.coin.value).abs
+      current_user.update_attribute(:daily_volume,
+                        current_user.daily_volume+(units*current_user.wallets[index].coin.value).abs)
       current_user.increment!(:daily_transactions)
       
       redirect_to current_user  
