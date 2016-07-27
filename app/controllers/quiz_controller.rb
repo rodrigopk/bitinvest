@@ -1,4 +1,5 @@
 class QuizController < ApplicationController
+	before_action :daily_quiz_limit, only: [:new]
 
 	def new
 		@question = Question.random_question
@@ -15,12 +16,20 @@ class QuizController < ApplicationController
 
 		if correctness
 			flash[:success] = t(:quiz_success)
+			current_user.reward
 		else
 			flash[:danger] = t(:quiz_failure)
 		end
 		current_user.update_attribute(:daily_question_answered,true)
-		current_user.reward
 		
 		redirect_to current_user
 	end
+
+	private
+		def daily_quiz_limit
+			if current_user.daily_question_answered
+				flash[:warning] = t(:quiz_limit_reached)
+				redirect_to current_user
+			end
+		end
 end
