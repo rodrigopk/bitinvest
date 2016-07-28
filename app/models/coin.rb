@@ -40,8 +40,13 @@ class Coin < ActiveRecord::Base
   end
 
   def save_metric
-    self.coin_metrics.create!(value: self.value, 
-                              variation: self.variations[:day])
+    
+    metrics_per_day = 96
+    if self.coin_metrics.size == metrics_per_day
+      self.coin_metrics.first.destroy
+    end
+      self.coin_metrics.create!(value: self.value, 
+                                variation: self.variations[:day])
   end
 
 end

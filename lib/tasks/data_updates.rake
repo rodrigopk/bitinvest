@@ -15,7 +15,8 @@ namespace :data_updates do
         if !coin.is_fiat? 
           #CryptocoinsWorker.perform_async(coin.id,hash)
           coin.update(hash)
-          sleep 1
+          coin.save_metric
+          sleep 0.25  #last best: 0.5
         end
       end
     end
