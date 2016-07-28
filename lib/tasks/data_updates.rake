@@ -16,7 +16,7 @@ namespace :data_updates do
           #CryptocoinsWorker.perform_async(coin.id,hash)
           coin.update(hash)
           coin.save_metric
-          sleep 0.25  #last best: 0.5
+          sleep 0.25  
         end
       end
     end
