@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723185437) do
+ActiveRecord::Schema.define(version: 20160728192438) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20160723185437) do
   end
 
   add_index "coin_average_statistics", ["coin_id"], name: "index_coin_average_statistics_on_coin_id"
+
+  create_table "coin_metrics", force: :cascade do |t|
+    t.decimal  "value",      default: 0.0
+    t.decimal  "variation",  default: 0.0
+    t.integer  "coin_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "coin_metrics", ["coin_id"], name: "index_coin_metrics_on_coin_id"
 
   create_table "coins", force: :cascade do |t|
     t.string   "name"

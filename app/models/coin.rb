@@ -2,6 +2,7 @@ class Coin < ActiveRecord::Base
   
   require 'open-uri'
   has_one :coin_average_statistic
+  has_many :coin_metrics
   
   validates :name, presence: true
   validates :tag, presence:true, uniqueness: true
@@ -36,6 +37,11 @@ class Coin < ActiveRecord::Base
   def bitcoin_value
     bitcoin_value = Coin.first.value
     return self.value/bitcoin_value
+  end
+
+  def save_metric
+    self.coin_metrics.create!(value: self.value, 
+                              variation: self.variations[:day])
   end
 
 end
