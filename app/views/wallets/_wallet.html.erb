@@ -12,7 +12,7 @@
   <% if !wallet.coin.is_fiat? %>
     <td > <%= number_with_precision(wallet.units, precision: 8) %> </td>
     <td > <%= number_to_currency(wallet.units*wallet.coin.value, precision: 2) %> </td>
-    <td  style=<%= @colors[wallet.coin.name] %>> <%= number_with_precision(wallet.coin.variations[:day], precision: 2) %>%</td>
+    <%= content_tag(:td, number_with_precision(wallet.coin.variations[:day], precision: 2)+"%", :class => "state_#{wallet.coin.variations[:day] <=> 0}") %>
     <td> <%= link_to t(:sell), new_transaction_path(:type => 'sell',
               :coin_id => wallet.coin_id), class: "btn btn-sm btn-primary" %> </td>
   <% else %>

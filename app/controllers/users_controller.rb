@@ -8,24 +8,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @wallets = []
     @fiat = []
-    @colors = {}
     @user.wallets.each { |wallet|
       if wallet.coin.is_fiat?
         @fiat << wallet
       else
-        if wallet.coin.variations[:day] == 0
-          color = "color:black;"
-        elsif wallet.coin.variations[:day] > 0
-          color = "color:green;"
-        else
-          color = "color:red;"
-        end
-        @colors[wallet.coin.name] = color
         @wallets << wallet
       end
-      
     }
     @user.increment!(:daily_wallet_views)
+
+    metrics = JSON.parse(@user.user_metrics.to_json)
+    # highstocks deals with values in format [UNIX miliseconds,number]
+    @values = metrics.collect {|hash| hash.values_at("wallet_value","created_at") }
+    @values = @values.map {|value| value = [value[1].to_time.to_i*1000,value[0].to_f.round(2)] }
   end
   
   def new

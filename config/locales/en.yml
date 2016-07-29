@@ -66,6 +66,7 @@ en:
   quiz_limit_reached: "You can take only one quiz per day.Try again tomorrow!"
   coin_history: "Coin history"
   axis_label: "Value($)"
+  user_history: "Your history"
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."

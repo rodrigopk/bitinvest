@@ -31,6 +31,9 @@
         <% end %>
       </tbody>
     </table>
-  
+  <%= content_tag "div", id: "user_chart", data: {values: @values, 
+                                                title: t(:user_history),
+                                                label: t(:axis_label) } do %>
+  <% end %>
   </div>
 </div>

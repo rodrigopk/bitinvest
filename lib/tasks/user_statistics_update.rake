@@ -56,8 +56,10 @@ namespace :user_statistics do
       File.open(logfile, 'a+') { |file| file.write("value_last_1h : #{user.value_last_1h}\n") }
       File.open(logfile, 'a+') { |file| file.write("value_var_1h : #{user.value_var_1h}\n") }
 
+      user.save_metric
     }
     File.open(logfile, 'a+') { |file|  file.write("end : #{Time.now}\n") }
+
   end
 
 end

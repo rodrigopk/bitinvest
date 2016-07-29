@@ -18,8 +18,8 @@
 	  	  	<td> <%= gravatar_for user, size:25 %> <%= user.name %> </tD>
 	  	  	<td> <%= number_to_currency(user.total_value_fiat, precision:2) %> </td>
 	  	  	<td> ฿<%= number_with_precision(user.total_value_bitcoin, precision:8) %></td>
-	  	  	<%= content_tag(:td, number_with_precision(user.value_var_1h, precision:2), :class => "state_#{user.value_var_1h.floor}") %>
-	  	  	<%= content_tag(:td, number_with_precision(user.value_var_24h, precision:2), :class => "state_#{user.value_var_24h.floor}") %>
+	  	  	<%= content_tag(:td, number_with_precision(user.value_var_1h, precision:2)+"%", :class => "state_#{user.value_var_1h <=> 0}") %>
+	  	  	<%= content_tag(:td, number_with_precision(user.value_var_24h, precision:2)+"%", :class => "state_#{user.value_var_24h <=> 0}") %>
 	  	  </tr>
 	  	<% end %>
 	  </tbody>

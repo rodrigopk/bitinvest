@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   
   has_many :wallets, dependent: :destroy
+  has_many :user_metrics, dependent: :destroy
+
   after_initialize :init
   
   attr_accessor :remember_token, :activation_token
@@ -130,6 +132,15 @@ class User < ActiveRecord::Base
 
   def reward
     self.get_fiat_wallet.increment!(:units, 500)
+  end
+
+  def save_metric
+    
+    metrics_per_day = 168
+    if self.user_metrics.size == metrics_per_day
+      self.user_metrics.first.destroy
+    end
+      self.user_metrics.create!(wallet_value: self.total_value_fiat)
   end
   
   private

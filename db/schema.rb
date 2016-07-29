@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728192438) do
+ActiveRecord::Schema.define(version: 20160729184300) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text"
@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 20160728192438) do
 
   add_index "transactions", ["wallet_id", "created_at"], name: "index_transactions_on_wallet_id_and_created_at"
   add_index "transactions", ["wallet_id"], name: "index_transactions_on_wallet_id"
+
+  create_table "user_metrics", force: :cascade do |t|
+    t.decimal  "wallet_value", default: 0.0
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "user_metrics", ["user_id"], name: "index_user_metrics_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

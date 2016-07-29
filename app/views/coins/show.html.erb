@@ -20,10 +20,10 @@
       <td> <%= number_to_currency(@coin.volume, precision: 2) %> </td>
       <td> <%= number_to_currency(@coin.market_cap, precision: 2) %> </td>
       <td> <%= number_with_precision(@coin.available_supply, precision: 2) %> <%= @coin.symbol%></td>
-      
-      <td style=<%= @colors[:hour] %>> <%= number_with_precision(@coin.variations[:hour], precision: 2) %>%</td>
-      <td style=<%= @colors[:day] %>> <%= number_with_precision(@coin.variations[:day], precision: 2) %>%</td>
-      <td style=<%= @colors[:week] %>> <%= number_with_precision(@coin.variations[:week], precision: 2) %>%</td>
+  
+      <%= content_tag(:td, number_with_precision(@coin.variations[:hour], precision: 2)+"%", :class => "state_#{@coin.variations[:hour] <=> 0}") %>
+      <%= content_tag(:td, number_with_precision(@coin.variations[:day], precision: 2)+"%", :class => "state_#{@coin.variations[:day] <=> 0}") %>
+      <%= content_tag(:td, number_with_precision(@coin.variations[:week], precision: 2)+"%", :class => "state_#{@coin.variations[:week] <=> 0}") %>
     </tr>
   </tbody>
 </table>
