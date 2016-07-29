@@ -27,3 +27,7 @@
     </tr>
   </tbody>
 </table>
+<%= content_tag "div", id: "coin_chart", data: {values: @values, 
+                                                title: t(:coin_history),
+                                                label: t(:axis_label) } do %>
+<% end %>

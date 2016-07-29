@@ -25,6 +25,7 @@ gem 'sidekiq-middleware' #handle locks
 gem 'http_accept_language'
 gem 'faraday'
 gem 'rest-client', '2.0'
+gem 'highstock-rails'
 
 
 group :development, :test do

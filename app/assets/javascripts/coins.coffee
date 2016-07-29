@@ -1,3 +1,21 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+ready = ->
+  #console.log $('#coin_chart').data('label')
+
+  $('#coin_chart').highcharts 'StockChart',
+    chart: type: 'line'
+    title: text: $('#coin_chart').data('title')
+
+    yAxis: title: text: $('#coin_chart').data('label')
+    series: [
+      {
+        name: 'value'
+        data: $('#coin_chart').data('values')
+        tooltip: {
+                    valueDecimals: 2
+                }
+      }
+    ]
+  return
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

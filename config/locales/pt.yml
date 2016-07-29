@@ -64,6 +64,8 @@ pt:
   quiz_success: 'Resposta certa! Adicionando $500 à sua carteira.'
   quiz_failure: 'Resposta errada! Tente novamente amanhã.'
   quiz_limit_reached: "Você só pode responder uma pergunta por dia.Tente novamente amanhã!"
+  coin_history: "Histórico da moeda"
+  axis_label: "Valor($)"
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."

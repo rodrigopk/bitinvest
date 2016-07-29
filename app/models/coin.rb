@@ -41,7 +41,7 @@ class Coin < ActiveRecord::Base
 
   def save_metric
     
-    metrics_per_day = 96
+    metrics_per_day = 672
     if self.coin_metrics.size == metrics_per_day
       self.coin_metrics.first.destroy
     end
