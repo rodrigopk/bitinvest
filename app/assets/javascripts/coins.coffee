@@ -11,7 +11,7 @@ ready = ->
         name: 'value'
         data: $('#coin_chart').data('values')
         tooltip: {
-                    valueDecimals: 2
+                    valueDecimals: 8
                 }
       }
     ]
