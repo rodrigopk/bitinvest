@@ -11,33 +11,15 @@ ready = ->
           type: 'hour'
           count: 1
           text: 'Hour'
-          dataGrouping:
-            forced: true
-            units: [ [
-              'hour'
-              [ 4 ]
-            ] ]
         }
         {
           type: 'hour'
           count: 24
           text: 'Day'
-          dataGrouping:
-            forced: true
-            units: [ [
-              'hour'
-              [ 4 ]
-            ] ]
         }
         {
           type: 'all'
           text: 'Week'
-          dataGrouping:
-            forced: true
-            units: [ [
-              'hour'
-              [ 4 ]
-            ] ]
         }
       ]
       buttonTheme: width: 60
