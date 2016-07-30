@@ -3,6 +3,22 @@ ready = ->
 
   $('#user_chart').highcharts 'StockChart',
     chart: type: 'line'
+    rangeSelector:
+      allButtonsEnabled: true
+      buttons: [
+        {
+          type: 'hour'
+          count: 24
+          text: 'Day'
+        }
+        {
+          type: 'all'
+          text: 'Week'
+        }
+      ]
+      buttonTheme: width: 60
+      selected: 1
+
     title: text: $('#user_chart').data('title')
 
     yAxis: title: text: $('#user_chart').data('label')
