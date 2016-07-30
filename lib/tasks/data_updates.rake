@@ -1,5 +1,6 @@
 require 'open-uri'
 require_relative '../../app/workers/cryptocoins_worker'
+require 'rake'
 
 namespace :data_updates do
   
@@ -45,4 +46,10 @@ namespace :data_updates do
     end
   end
 
+  desc "Fake data updates"
+  task :fake_updates => :environment do
+    for i in 0..15
+      Rake::Task["data_updates:cryptocoins_update_task"].execute
+    end
+  end
 end
