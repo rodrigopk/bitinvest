@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  include Rails.application.routes.url_helpers
+  #include Rails.application.routes.url_helpers
+  require 'csv'
   
   has_many :wallets, dependent: :destroy
   has_many :user_metrics, dependent: :destroy
@@ -141,6 +142,19 @@ class User < ActiveRecord::Base
       self.user_metrics.first.destroy
     end
       self.user_metrics.create!(wallet_value: self.total_value_fiat)
+  end
+
+  def self.to_csv 
+    header = %w{name email}    
+    filename = File.join Rails.root ,'csv/users.csv'
+
+    CSV.open(filename, "w", headers: true) do |csv|
+      csv << header
+
+      all.each do |user|
+        csv << user.attributes.values_at(*header)
+      end
+    end
   end
   
   private

@@ -3,7 +3,7 @@ require 'csv'
 namespace :import do
 	desc 'Import coin metrics from csv'
 	task :coin_metrics => :environment do
-		filename = File.join Rails.root ,'coin_metrics.csv'
+		filename = File.join Rails.root ,'csv/coin_metrics.csv'
 		counter = 0
 
 		CSV.foreach(filename, headers: true) do |row| 
@@ -20,7 +20,7 @@ namespace :import do
 
 	desc 'Import user metrics from csv'
 	task :user_metrics => :environment do
-		filename = File.join Rails.root ,'user_metrics.csv'
+		filename = File.join Rails.root ,'csv/user_metrics.csv'
 		counter = 0
 
 		CSV.foreach(filename, headers: true) do |row| 
@@ -36,7 +36,7 @@ namespace :import do
 
 	desc 'Import users from csv'
 	task :users => :environment do
-		filename = File.join Rails.root ,'users.csv'
+		filename = File.join Rails.root ,'csv/users.csv'
 		counter = 0
 
 		CSV.foreach(filename, headers: true) do |row| 
