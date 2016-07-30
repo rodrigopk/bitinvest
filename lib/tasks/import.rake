@@ -7,7 +7,7 @@ namespace :import do
 		counter = 0
 
 		CSV.foreach(filename, headers: true) do |row| 
-			p row
+			#p row
 			coin = Coin.find(row["coin_id"])
 			metric = coin.coin_metrics.create(value: row["value"], 
                                 				variation: row["variation"],
@@ -24,7 +24,7 @@ namespace :import do
 		counter = 0
 
 		CSV.foreach(filename, headers: true) do |row| 
-			p row
+			#p row
 			user = User.find(row["user_id"])
 			metric = user.user_metrics.create(wallet_value: row["wallet_value"],
                                 				created_at: row["created_at"])
@@ -40,7 +40,7 @@ namespace :import do
 		counter = 0
 
 		CSV.foreach(filename, headers: true) do |row| 
-			p row
+			#p row
 			random_password = SecureRandom.urlsafe_base64
 
 			user = User.create(	name:  					row["name"],
@@ -58,5 +58,21 @@ namespace :import do
       		end
 		end
 		puts "Imported #{counter} users"
+	end
+
+	desc "Safe db reset"
+	task :safe_reset => :environment do
+		#save metrics and statics
+		CoinMetric.all.to_csv
+		#UserMetric.all.to_csv
+		#save users
+		#User.all.to_csv
+		#reset db
+		Rake::Task["db:reset"].execute
+		#recover users
+		#Rake::Task["import:users"].execute
+		#recover metrics and statistics
+		Rake::Task["import:coin_metrics"].execute
+		#Rake::Task["import:user_metrics"].execute
 	end
 end
