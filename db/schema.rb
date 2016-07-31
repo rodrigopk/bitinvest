@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 20160731122832) do
     t.boolean  "daily_question_answered", default: false
     t.integer  "level",                   default: 1
     t.integer  "xp",                      default: 0
-    t.string   "title"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
