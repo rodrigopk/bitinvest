@@ -14,12 +14,18 @@ class QuizController < ApplicationController
 						question: question,
 						correct: correctness )
 
+		reward = :small
 		if correctness
 			flash[:success] = t(:quiz_success)
-			current_user.reward
+			reward = :big
 		else
 			flash[:danger] = t(:quiz_failure)
 		end
+		
+		level = current_user.level
+      	current_user.reward_xp(reward)
+      	flash[:success] = t(:level_up) if current_user.level > level
+
 		current_user.update_attribute(:daily_question_answered,true)
 		
 		redirect_to current_user

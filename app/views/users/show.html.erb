@@ -6,6 +6,8 @@
         <%= gravatar_for @user, size:50 %>
         <%= @user.name %>
       </h1>
+      <h2>level <%= @user.level%></h2>
+      <h2><%= @user.xp%> / <%= @user.level*1000%></h2>
     </section>
   </aside>
   <div class="col-md-8">

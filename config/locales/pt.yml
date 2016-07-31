@@ -59,14 +59,15 @@ pt:
   know_more: "Ainda tenho dúvidas sobre Bitcoins e Altcoins."
   bitcoin_faq: "https://bitcoin.org/pt_BR/faq"
   answer: "Enviar resposta"
-  quiz_available: "Responda a pergunta diária e ganhe $500 no simulador!" 
+  quiz_available: "Responda a pergunta diária para progredir seu nível!" 
   quiz_button: "Responder pergunta"
-  quiz_success: 'Resposta certa! Adicionando $500 à sua carteira.'
+  quiz_success: 'Resposta certa! Parabéns!'
   quiz_failure: 'Resposta errada! Tente novamente amanhã.'
   quiz_limit_reached: "Você só pode responder uma pergunta por dia.Tente novamente amanhã!"
   coin_history: "Histórico da moeda"
   axis_label: "Valor($)"
   user_history: "Seu histórico"
+  level_up: "Você ganhou um nível!"
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."

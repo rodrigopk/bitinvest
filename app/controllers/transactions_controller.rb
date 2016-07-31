@@ -47,13 +47,18 @@ class TransactionsController < ApplicationController
     else
       fiat_wallet.update_attribute(:units,fiat_units)
       current_user.wallets[index].update_attribute(:units,source_units)
-      
-      #coin statistics
+
+      #reward user
+      level = current_user.level
+      current_user.reward_xp(:small)
+      flash[:success] = t(:level_up) if current_user.level > level
+
+      #collect coin statistics
       current_user.wallets[index].coin.coin_average_statistic.update_attribute(:total_volume,
                         current_user.wallets[index].coin.coin_average_statistic.total_volume+(units*current_user.wallets[index].coin.value).abs)
       current_user.wallets[index].coin.coin_average_statistic.increment!(:total_operations)
       
-      #user statistics
+      #collect user statistics
       current_user.update_attribute(:daily_volume,
                         current_user.daily_volume+(units*current_user.wallets[index].coin.value).abs)
       current_user.increment!(:daily_transactions)

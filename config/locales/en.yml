@@ -59,14 +59,15 @@ en:
   know_more: "I still have questions about Bitcoin and Altcoins."
   bitcoin_faq: "https://bitcoin.org/en/faq"
   answer: "Submit answer"
-  quiz_available: "Answer to the daily quiz and win $500 in game!"
+  quiz_available: "Answer to the daily quiz to increase your level!"
   quiz_button: "Take quiz"
-  quiz_success: "Correct answer! Adding $500 to your wallet." 
+  quiz_success: "Correct answer! Horaay!" 
   quiz_failure: "You chose poorly! Try again tomorrow." 
   quiz_limit_reached: "You can take only one quiz per day.Try again tomorrow!"
   coin_history: "Coin history"
   axis_label: "Value($)"
   user_history: "Your history"
+  level_up: "You leveled up!"
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."
