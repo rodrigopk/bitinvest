@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_metrics, dependent: :destroy
 
   after_initialize :init
+  before_save :level_up_check, if: :xp_changed?
   
   attr_accessor :remember_token, :activation_token
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -131,8 +132,12 @@ class User < ActiveRecord::Base
     return value
   end
 
-  def reward
-    self.get_fiat_wallet.increment!(:units, 500)
+  def reward_xp(reward)
+    rewards = {:small => 100, :medium =>200 ,:big => 500}
+    if rewards.key?(reward)
+      self.increment!(:xp, rewards[reward])
+      level_up_check
+    end
   end
 
   def save_metric
@@ -175,6 +180,14 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    def level_up_check
+      next_level_xp = (self.level)*1000
+      if self.xp >= next_level_xp
+        self.update!(level: self.level+1,
+                      xp: self.xp-next_level_xp)
+      end
     end
   
 end

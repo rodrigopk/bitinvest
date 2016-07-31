@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729184300) do
+ActiveRecord::Schema.define(version: 20160731122832) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text"
@@ -117,6 +117,9 @@ ActiveRecord::Schema.define(version: 20160729184300) do
     t.decimal  "value_var_1h",            default: 0.0
     t.decimal  "value_var_24h",           default: 0.0
     t.boolean  "daily_question_answered", default: false
+    t.integer  "level",                   default: 1
+    t.integer  "xp",                      default: 0
+    t.string   "title"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

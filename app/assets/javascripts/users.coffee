@@ -19,7 +19,7 @@ ready = ->
       buttonTheme: width: 60
       selected: 1
 
-    title: text: $('#user_chart').data('title')
+    #title: text: $('#user_chart').data('title')
 
     yAxis: title: text: $('#user_chart').data('label')
     series: [
