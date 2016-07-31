@@ -1,4 +1,5 @@
 class CoinAverageStatistic < ActiveRecord::Base
+  require 'csv'
   belongs_to :coin
 
   def self.to_csv 

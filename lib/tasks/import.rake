@@ -60,6 +60,39 @@ namespace :import do
 		puts "Imported #{counter} users"
 	end
 
+	desc 'Import questions from csv'
+	task :questions => :environment do
+		filename = File.join Rails.root ,'csv/questions.csv'
+		counter = 0
+
+		CSV.foreach(filename, headers: true) do |row| 
+			#p row
+
+			question = Question.create(title: row["title"]) 
+
+			counter += 1 if question.persisted?
+		
+		end
+		puts "Imported #{counter} questions"
+	end
+
+	desc 'Import answers from csv'
+	task :answers => :questions do
+		filename = File.join Rails.root ,'csv/answers.csv'
+		counter = 0
+
+		CSV.foreach(filename, headers: true) do |row| 
+			#p row
+			question = Question.find(row["question_id"])
+			answer = question.answers.create(text: row["text"], 
+                                				correct: row["correct"])
+
+			puts "Error - #{answer.errors.full_messages.join(',')}" if answer.errors.any?
+			counter += 1 if answer.persisted?
+		end
+		puts "Imported #{counter} answers"
+	end
+
 	desc "Safe db reset"
 	task :safe_reset => :environment do
 		#save metrics and statics

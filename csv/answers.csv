@@ -1,0 +1,117 @@
+text,correct,question_id
+É uma rede que funciona de forma consensual onde foi possível criar uma nova forma de pagamento e também uma nova moeda completamente digital.,true,1
+"É Uma forma de pagamento virtual, similar ao Paypal e PagSeguro, que depende de moedas correntes para funcionar.",false,1
+Uma rede de compartilhamento P2P,false,1
+Uma modalidade de investimento na bolsa de valores,false,1
+"A Bitcoin é controlada pelo seu criador, Satoshi Nakamoto.",false,2
+A Bitcoin é controlada pelo FED,false,2
+A Bitcoin é controlada pela fundação Bitcoin,false,2
+A Bitcoin é controlada por todos os usuários do Bitcoin ao redor do mundo.,true,2
+Novos bitcoins são gerados através de um processo competitivo e descentralizado chamado 'mineração'.,true,3
+Novos bitcoins são criadas baseados num algorítimo pseudo-aleatório chamado 'blockchain'.,false,3
+Novos bitcoins são gerados automaticamente toda sexta-feira as 16:20 GMT.,false,3
+"O número de bitcoins disponíveis é fixo desde sua criação, e novos bitcoins não podem ser gerados.",false,3
+O valor do dólar.,false,4
+Oferta e da demada.,true,4
+O padrão ouro.,false,4
+O valor de 12 camelos adultos.,false,4
+2011,false,5
+2009,true,5
+2012,false,5
+2001,false,5
+32 milhões,false,6
+60 milhões,false,6
+9 milhões,false,6
+21 milhões,true,6
+Um registro público que contém todas as transações de Bitcoins já processadas​​.,true,7
+O nome dado ao bloco dados de transações processados por um minerador para criar uma nova Bitcoin.,false,7
+O fórum de criptografia onde foi publicada a primeira especificação do Bitcoin.,false,7
+O conjunto de todas as bitcoins disponíveis no mercado.,false,7
+Um cartão de débito capaz de ser carregado com bitcoins.,false,8
+Um programa que armazena as chaves privadas para acessar cryptocoins.,true,8
+Uma conta criada no banco do instituto Bitcoin.,false,8
+Um arquivo de computador contendo cryptocoins.,false,8
+Cypherpunks,false,9
+Satoshis,false,9
+Mineradores,true,9
+Processadores,false,9
+Javascript,false,10
+MD-5,false,10
+Scrypt-N,false,10
+Sha256,true,10
+Namecoin,false,11
+Litecoin,true,11
+DogeCoin,false,11
+Bitcoin,false,11
+Expressão usada para se referir as moedas criptografadas que não o Bitcoin.,true,12
+Expressão usada para se referir as moedas criptografadas que usam criprografia Scrypt.,false,12
+Expressão usada para se referir as moedas criptografadas que valem menos de 1 dólar.,false,12
+Expressão usada para se referir as moedas criptografadas que não são aceitas no mercado.,false,12
+Dogecoin,false,13
+Ethereum,false,13
+Ripple,true,13
+Litecoin,false,13
+"Não, Bitcoins são ilegais e transações ou vendas em Bitcoins são passíveis de prisão.",false,14
+"Não, Bitcoins são ilegais e transações ou vendas em Bitcoins são passíveis de multa.",false,14
+"Sim, Bitcoins são legais e mas não podem ser utilizadas como forma de pagamento dentro do território.",false,14
+"Sim, Bitcoins são legais e podem ser usadas como forma de pagamento dentro do território brasileiro.",true,14
+Um ataque direto a carteira de um usuário.,false,15
+A habilidade de uma pessoa de posse da maioria do hash rate de uma rede controlar o histórico de transações e evitar novas transações de serem confirmadas.,true,15
+Um ataque direcionado modificando os registros das transações de forma a obter o controle dos mineradores da rede.,false,15
+A habilidade de um grupo de mineradores impedir outros mineradores de obter bitcoins.,false,15
+É o registro público que contém todas as transações de Bitcoins já processadas​​.,false,16
+A extração de novos bitcoins nas minas da Sumatra.,false,16
+O processo de gravação das informações relevantes a uma transação no blockchain.,false,16
+"É o processo de usar capacidade de processamento para processar transações, garantir a segurança da rede, e manter todos participantes do sistema sincronizados.",true,16
+"Sim, a maioria dos sistemas que dependem de criptografia em geral são, inclusive sistemas bancários tradicionais. ",true,17
+"Não, o sistema distribuído da bitcoin foi projetado para ser imune a esses tipos de ataques.",false,17
+"Sim, mas apenas as carteiras armazenadas na nuvem estariam vulneráveis.",false,17
+"Não, a criptografia usada pela rede Bitcoin é imune a esse tipo de ataque.",false,17
+"SatoshiCo, a empresa fundada pelo grupo fundador do Bitcoin. ",false,18
+The Bitcoin foundation. ,false,18
+"Não existe empresa por trás do Bitcoin, ele é controlado democraticamente por todos os usuários do fórum BitcoinTalk. ",false,18
+"Não existe empresa por trás do Bitcoin, ele é controlado coletivamente por todos que executam o cliente Bitcoin.",true,18
+Um código secreto que permite ao usuário provar a posse de suas Bitcoins,true,19
+Um código utilizado para o cancelamento de operações com Bitcoins.,false,19
+Um código secreto que permite que o usuário minere bitcoins.,false,19
+Um código utilizado para criar uma carteira Bitcoin.,false,19
+Um endereço de email gratuito fornecido para todos os usuários da rede Bitcoin.,false,20
+Um endereço único que lhe permite receber Bitcoins.,true,20
+Um endereço de um estabelecimento comercial que aceita bitcoins como forma de pagamento.,false,20
+Um endereço de um site que lhe permite visualizar as informações da sua carteira.,false,20
+"Sim, uma transação pode ser cancelada até 1h depois de sua conclusão.",false,21
+"Sim, uma transação pode ser cancelada até 24h depois de sua conclusão.",false,21
+"Sim, mas apenas se os envolvidos pagarem o seguro extra da rede Bitcoin.",false,21
+"Não, transações são irreversíveis.",true,21
+"Sim, uma pessoa pode ser banida caso deixe de rodar o software da rede Bitcoin por mais de 6 meses.",false,22
+"Não, ninguém pode impedir uma pessoa de interagir com a rede Bitcoin.",true,22
+"Sim, uma pessoa pode ser banida da rede caso viole os termos e condições do contrato Bitcoin.",false,22
+"Sim, mas apenas os membros da SatoshiCo podem banir usuários da rede.",false,22
+"Apenas o criador do bitcoin, Satoshi Nakamoto.",false,23
+Apenas aqueles que compram a licensa do software.,false,23
+Qualquer pessoa pode acessar o código fonte.,true,23
+Qualquer minerador da rede bitcoin.,false,23
+"Sim, é possível rastrear transações analisando as informações na Blockchain.",true,24
+"Não, a Bitcoin é completamente anônima.",false,24
+"Não, a criptografia da rede é impenetrável.",false,24
+"Sim, mas apenas se o usuário não marcar suas transações como anônimas.",false,24
+"Sim, mas apenas mineradores podem realizar este tipo de operação.",false,25
+"Sim, é possível enviar e receber bitcoins para qualquer lugar do mundo.",true,25
+"Não, transações são limitadas aos países adjacentes ao país de origem do usuário.",false,25
+"Não, transações são limitadas ao país de origem do emissor.",false,25
+"Sim, mas apenas em dispositivos vendidos pela SatoshiCo.",false,26
+"Sim, podem ser mantidas em qualquer dispositivo de armazenamento.",true,26
+"Não, bitcoins só podem ser armazenadas nos servidores da SatoshiCo.",false,26
+"Não, bitcoins só podem ser armazenadas na nuvem.",false,26
+"Quando um usuário perde a carteira, o valor perdido é distribuído entre os usuários.",false,27
+"Quando um usuário perde a carteira, o valor é recuperado mediante o pagamento de uma taxa a SatoshiCo.",false,27
+"Quando um usuário perde a carteira, o valor é recuperado assim que o usuário se reconecta a rede Bitcoin.",false,27
+"Quando um usuário perde a carteira, suas bitcoins são retiradas de circulação.",true,27
+"De forma descentralizada, em vários servidores espalhados nas sedes da SatoshiCo.",false,28
+"De forma centralizada, num supercomputador localizado na base do Bitcoin.",false,28
+"De forma descentralizada, por todos os usuários do cliente Bitcoin.",true,28
+"De forma centralizada, num supercomputador localizado no Fort Knox.",false,28
+Um prêmio entregue a todos os usuários que mineram bitcoins pela primeira vez.,false,29
+A competição entre mineradores para encontrar a hash correta.,true,29
+O recibo eletrônico gerado após cada transação em Bitcoin.,false,29
+O recibo eletrônico gerado após cada bloco Bitcoin minerado.,false,29
