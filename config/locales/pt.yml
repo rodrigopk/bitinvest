@@ -68,6 +68,7 @@ pt:
   axis_label: "Valor($)"
   user_history: "Seu histórico"
   level_up: "Você ganhou um nível!"
+  level: "Nível"
   
   #TL;DR
   forgot_password_subtext: "Sem problemas,nós mandaremos um link para o seu email para redefinir sua senha."
@@ -88,6 +89,29 @@ pt:
   mail_title_activation: "BitInvest - Ativação de conta"
   mail_title_reset: "BitInvest - Redefinição de senha"
   
+  #Titles
+  title_1: "Iniciante"
+  title_2: "Novato"
+  title_3: "O Aprendiz"
+  title_4: "Entusiasta"
+  title_5: "Minerador"
+  title_6: "Explorador digital"
+  title_7: "Cryptonauta"
+  title_8: "Cypherpunk"
+  title_9: "Cryptomancer"
+  title_10: "Bitcoin expert"
+  title_11: "Autoridade Bitcoin"
+  title_12: "Desenvolvedor Bitcoin"
+  title_13: "Ancap"
+  title_13: "John Galt"
+  title_14: "Ron Swanson"
+  title_15: "Ludwig von Mises"
+  title_16: "Fantasma de Satoshi"
+  title_17: "Discípulo de Satoshi"
+  title_18: "Possivelmente Satoshi"
+  title_19: "Provavelmente Satoshi"
+  title_20: "Aquele que não pode ser nomeado"
+
   will_paginate:
     previous_label: "Anterior"
     next_label: "Próximo"

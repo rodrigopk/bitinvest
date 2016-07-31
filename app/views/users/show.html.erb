@@ -6,8 +6,18 @@
         <%= gravatar_for @user, size:50 %>
         <%= @user.name %>
       </h1>
-      <h2>level <%= @user.level%></h2>
-      <h2><%= @user.xp%> / <%= @user.level*1000%></h2>
+      <h4><%= t(:level) %> <%= @user.level%></h4>
+      <h5><%= t(@user_title) %></h5>
+      <div class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped" 
+              role="progressbar" aria-valuenow=<%= "#{@level_progression}" %> 
+              aria-valuemin="0" aria-valuemax="100" 
+              style=<%= "width:#{@level_progression}%" %>
+              >
+        </div>
+      </div>
+      <h6><%= @user.xp%> / <%= @user.level*1000%> xp</h6>
+
     </section>
   </aside>
   <div class="col-md-8">

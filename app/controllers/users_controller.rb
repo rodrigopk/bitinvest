@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @level_progression = (@user.xp.to_f/(@user.level*1000).to_f)*100
+    @user_title = "title_#{@user.level}".to_sym
     @wallets = []
     @fiat = []
     @user.wallets.each { |wallet|

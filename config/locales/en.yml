@@ -68,6 +68,7 @@ en:
   axis_label: "Value($)"
   user_history: "Your history"
   level_up: "You leveled up!"
+  level: "Level"
   
   #TL;DR
   contact_subtext: "TO-DO: Implement contact form."
@@ -88,6 +89,30 @@ en:
   mail_title_activation: "BitInvest - Account activation"
   mail_title_reset: "BitInvest - Password reset"
   
+  #Titles
+  title_1: "Newbie"
+  title_2: "Novice"
+  title_3: "The Aprentice"
+  title_4: "Entusiast"
+  title_5: "Miner"
+  title_6: "Digital explorer"
+  title_7: "Cryptonaut"
+  title_8: "Cypherpunk"
+  title_9: "Cryptomancer"
+  title_10: "Bitcoin expert"
+  title_11: "Bitcoin authority"
+  title_12: "Bitcoin developer"
+  title_13: "Ancap"
+  title_13: "John Galt"
+  title_14: "Ron Swanson"
+  title_15: "Ludwig von Mises"
+  title_16: "Satoshi's ghost"
+  title_17: "Satoshi's disciple"
+  title_18: "Possibly Satoshi"
+  title_19: "Probably Satoshi"
+  title_20: "He who must not be named"
+
+
   will_paginate:
     previous_label: "Next"
     next_label: "Previous"
