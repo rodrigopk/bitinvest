@@ -4,7 +4,7 @@ en:
   hello: "Hello"
   home_header: "Welcome to BitInvest"
   home_subtext: "The cryptocoin investments simulator"
-  signup_button: "Sign up now"
+  signup_button: "Sign up"
   contact_link: "Contact"
   home_link: "Home"
   help_link: "Help"
