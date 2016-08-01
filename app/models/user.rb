@@ -183,11 +183,13 @@ class User < ActiveRecord::Base
     end
 
     def level_up_check
-      next_level_xp = (self.level)*1000
-      if self.xp >= next_level_xp
-        self.update!(level: self.level+1,
-                      xp: self.xp-next_level_xp)
-      end
+      if self.level < 20
+        next_level_xp = (self.level)*1000
+        if self.xp >= next_level_xp
+          self.update!(level: self.level+1,
+                        xp: self.xp-next_level_xp)
+        end
+      end  
     end
   
 end

@@ -3,7 +3,7 @@
 	<table class="table">
 	  <thead>
 		  <tr>
-		    <th class="col-sm-1"> # </th>
+		    <th class="col-sm-1"> <%= t(:level) %> </th>
 		    <th class="col-sm-4"><%= t(:user) %> </th>
 		    <th class="col-md-3"><%= t(:value) %> ($)</th>
 		    <th class="col-md-3"><%= t(:value) %> (฿)</th>
@@ -14,7 +14,7 @@
 	  <tbody>
 	  	<% users.each_with_index do |user,index| %>
 	  	  <tr>
-	  	  	<th> <%= index+1 %> </th>
+	  	  	<th> <%= user.level %> </th>
 	  	  	<td> <%= gravatar_for user, size:25 %> <%= user.name %> </tD>
 	  	  	<td> <%= number_to_currency(user.total_value_fiat, precision:2) %> </td>
 	  	  	<td> ฿<%= number_with_precision(user.total_value_bitcoin, precision:8) %></td>
