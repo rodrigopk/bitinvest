@@ -1,13 +1,17 @@
 
-<div class="container-fluid">
-	<div class="filler"></div>
-	<video autoplay loop poster="bg_video_poster.png" class="bg_video">
-		<source src="bg_video.mp4" type="video/mp4">
-		<source src="bg_video.webm" type="video/webm">
-	</video>
+<div class="homepage-hero-module">
+    <div class="video-container">
+        <div class="filter">
+        	<h1><%= t :home_header %></h1>
+        	<h2><%= t :home_subtext %></h2>
+        </div>
+        <video autoplay loop class="fillWidth">
+            <source src="bg_video.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            <source src="bg_video.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+        <div class="poster hidden">
+            <img src="bg_video_poster.png" alt="">
+        </div>
+    </div>
 </div>
-<%= render 'layouts/home_jumbotron'%>
 <%= render 'layouts/general_ranking',users: @users%>
-<% if logged_in? %>
-	
-<% end %>
