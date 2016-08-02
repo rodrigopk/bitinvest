@@ -254,12 +254,12 @@ input {
 /* video coverr */
 
 .homepage-hero-module {
-    margin-top: -60px;
-    margin-left: -100px;
-    margin-right: -100px;
+    width: 150%;
+    margin: auto;
+    position: relative;
+    left: -70px;  top: -60px;
     border-right: none;
     border-left: none;
-    position: relative;
 }
 .no-video .video-container video,
 .touch .video-container video {
@@ -285,8 +285,12 @@ input {
 }
 .video-container .filter {
     z-index: 100;
-    position: absolute;
-    margin-top: 20%;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-bottom: 10px;
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
 
@@ -310,6 +314,6 @@ input {
     bottom: 0;
 }
 .video-container video.fillWidth {
-    width: 100%;
+    width: 150%;
 }
 
