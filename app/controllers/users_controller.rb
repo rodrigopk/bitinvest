@@ -34,10 +34,8 @@ class UsersController < ApplicationController
       @user.create_initial_wallets
       @user.send_activation_email
       flash[:info] = t(:please_check_email)
-      redirect_to root_url
-    else
-      render 'new'
     end
+    render 'new'
   end
   
   def edit
