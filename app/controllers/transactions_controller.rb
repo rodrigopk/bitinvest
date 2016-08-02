@@ -40,10 +40,10 @@ class TransactionsController < ApplicationController
     fiat_units = fiat_wallet.units+(-1*units*current_user.wallets[index].coin.value)
     source_units = current_user.wallets[index].units+units
 
-    if ( params[:type] == 'sell' && source_units.abs > current_user.wallets[index].units.abs ) ||
-        ( params[:type] == 'buy' && fiat_units.abs > fiat_wallet.units.abs )
+    if ( params[:type] == 'sell' && source_units < 0 ) ||
+        ( params[:type] == 'buy' && fiat_units < 0 )
       flash[:danger] = t(:insufficient)
-      redirect_to new_transaction_path(:type => @type,:wallet => current_user.wallets[index].id)
+      redirect_to new_transaction_path(:type => @type,:coin_id => current_user.wallets[index].coin_id)
     else
       fiat_wallet.update_attribute(:units,fiat_units)
       current_user.wallets[index].update_attribute(:units,source_units)
