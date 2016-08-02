@@ -248,16 +248,18 @@ input {
 .ranking-table {
   background-color : rgba(255, 255, 255, 0.8);
   padding: 5px;
-
+  margin-top: 50%
 }
 
 /* video coverr */
 
 .homepage-hero-module {
-    width: 150%;
-    margin: auto;
-    position: relative;
-    left: -70px;  top: -60px;
+    width: 100%;
+    position: absolute;
+    top: -60pt; 
+    left:0;
+    right:0;
+    bottom: 0;
     border-right: none;
     border-left: none;
 }
