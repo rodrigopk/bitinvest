@@ -4,6 +4,9 @@
         <div class="filter">
         	<h1><%= t :home_header %></h1>
         	<h2><%= t :home_subtext %></h2>
+            <div class="center">
+                <%= link_to t(:signup_button), signup_path, class: "btn btn-primary" %>
+            </div>
         </div>
         <video autoplay loop class="fillWidth">
             <source src="bg_video.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
