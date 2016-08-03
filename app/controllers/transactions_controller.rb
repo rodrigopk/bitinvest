@@ -2,8 +2,8 @@ class TransactionsController < ApplicationController
   
   def new
     @wallet = nil
-    unless Wallet.find_by(coin_id: params[:coin_id]).nil?
-      @wallet = Wallet.find_by(coin_id: params[:coin_id])
+    unless current_user.wallets.find_by(coin_id: params[:coin_id]).nil?
+      @wallet = current_user.wallets.find_by(coin_id: params[:coin_id])
     else
       @wallet = current_user.wallets.create!(units: 0.0, coin_id: params[:coin_id])   
     end 
@@ -36,7 +36,10 @@ class TransactionsController < ApplicationController
     else
       units = params[:units].to_f
     end
-    
+    logger.debug "\n=== wallets: #{current_user.wallets.to_a} ===\n"
+    logger.debug "\n=== index: #{index} ===\n"
+    logger.debug "\n=== wallet: #{current_user.wallets[index]} ===\n"
+
     fiat_units = fiat_wallet.units+(-1*units*current_user.wallets[index].coin.value)
     source_units = current_user.wallets[index].units+units
 
