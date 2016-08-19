@@ -248,14 +248,14 @@ input {
 .ranking-table {
   background-color : rgba(255, 255, 255, 0.8);
   padding: 5px;
-  margin-top: 50%
+  
 }
 
 /* video coverr */
 
 .homepage-hero-module {
     width: 100%;
-    position: absolute;
+    position: relative;
     top: -60pt; 
     left:0;
     right:0;
@@ -272,7 +272,7 @@ input {
     display: block !important;
 }
 .video-container {
-    position: relative;
+    position: absolute;
     bottom: 0%;
     left: 0%;
     height: 100%;
