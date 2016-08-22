@@ -36,9 +36,8 @@ class TransactionsController < ApplicationController
     else
       units = params[:units].to_f
     end
-    logger.debug "\n=== wallets: #{current_user.wallets.to_a} ===\n"
-    logger.debug "\n=== index: #{index} ===\n"
-    logger.debug "\n=== wallet: #{current_user.wallets[index]} ===\n"
+    logger.debug "\n=== type: #{params[:type]} ===\n"
+    logger.debug "\n=== wallet: #{current_user.wallets[index].coin.name} ===\n"
 
     fiat_units = fiat_wallet.units+(-1*units*current_user.wallets[index].coin.value)
     source_units = current_user.wallets[index].units+units
@@ -46,7 +45,7 @@ class TransactionsController < ApplicationController
     if ( params[:type] == 'sell' && source_units < 0 ) ||
         ( params[:type] == 'buy' && fiat_units < 0 )
       flash[:danger] = t(:insufficient)
-      redirect_to new_transaction_path(:type => @type,:coin_id => current_user.wallets[index].coin_id)
+      redirect_to new_transaction_path(:type => params[:type],:coin_id => current_user.wallets[index].coin_id)
     else
       fiat_wallet.update_attribute(:units,fiat_units)
       current_user.wallets[index].update_attribute(:units,source_units)
