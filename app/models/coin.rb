@@ -1,6 +1,7 @@
 class Coin < ActiveRecord::Base
   
   require 'open-uri'
+  
   has_one :coin_average_statistic
   has_many :coin_metrics
   
@@ -14,10 +15,10 @@ class Coin < ActiveRecord::Base
     File.open(logfile, 'a+') { |file| 
         file.write("updating coin :"+self.name+" - #{hash["price_usd"]}\n") 
     }
-    self.value = hash["price_usd"]
-    self.volume = hash["24h_volume_usd"]
-    self.market_cap = hash["market_cap_usd"]
-    self.available_supply = hash["available_supply"]
+    self.value = hash["price_usd"]||0.0
+    self.volume = hash["24h_volume_usd"]||0.0
+    self.market_cap = hash["market_cap_usd"]||0.0
+    self.available_supply = hash["available_supply"]||0.0
     self.rank = hash["rank"]
     self.variations = { :hour => hash["percent_change_1h"]||0.0,
                         :day => hash["percent_change_24h"]||0.0,
@@ -27,10 +28,10 @@ class Coin < ActiveRecord::Base
   
   def Coin.search(search)
     if search
-      Coin.where("name like ?", "%#{search}%").order("rank")
+      Coin.where("lower(name) like ?", "%#{search.downcase}%").where.not(is_fiat: true)
       
     else
-      Coin.all.order("rank")
+      Coin.where.not(is_fiat: true)
     end
   end
 
@@ -47,6 +48,19 @@ class Coin < ActiveRecord::Base
     end
       self.coin_metrics.create!(value: self.value, 
                                 variation: self.variations[:day])
+  end
+
+  def Coin.find_null_volume 
+    coins = []
+    Coin.all.each do |coin|
+      if !coin.is_fiat?
+        if coin.volume.nil?
+          puts "#{coin.name} has null volume"
+          coins << coin
+        end
+      end
+    end 
+    coins.count
   end
 
 end

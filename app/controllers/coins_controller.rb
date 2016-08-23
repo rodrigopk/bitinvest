@@ -2,9 +2,18 @@ class CoinsController < ApplicationController
   
   require 'open-uri'
   before_action :logged_in_user, only: [:index]
-  
+  helper_method :sort_column, :sort_direction
+
   def index
-    @coins = Coin.search(params[:search]).paginate(page: params[:page])
+    if sort_column == "variations[:hour]"
+      if sort_direction == "desc"
+        @coins = Coin.search(params[:search]).sort_by{|c| c.variations[:hour]}.reverse.paginate(page: params[:page])
+      else
+        @coins = Coin.search(params[:search]).sort_by{|c| c.variations[:hour]}.paginate(page: params[:page])
+      end
+    else
+      @coins = Coin.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(page: params[:page])  
+    end
   end
   
   def show 
@@ -17,6 +26,19 @@ class CoinsController < ApplicationController
     
     @coin.coin_average_statistic.increment!(:total_coin_views)
   end
+
+  private
+    def sort_column
+      if params[:sort] != "variations[:hour]" 
+        Coin.column_names.include?(params[:sort]) ? params[:sort] : "rank"  
+      else
+        params[:sort]
+      end
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
   
   
 end
