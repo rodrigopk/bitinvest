@@ -127,7 +127,7 @@ footer {
   }
 }
 
-/* miscellaneous */
+/* debug */
 
 .debug_dump {
   clear: both;
@@ -135,6 +135,21 @@ footer {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+/* ordered columns */
+
+th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+th .asc { 
+  background-image: url(/images/up_arrow.gif); 
+}
+
+th .desc { 
+  background-image: url(/images/down_arrow.gif); 
 }
 
 /* sidebar */
