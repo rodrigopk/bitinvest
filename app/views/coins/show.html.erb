@@ -1,6 +1,6 @@
 <% provide(:title, @coin.name) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-5">
     <section class="user_info">
           <h1>
             <%= image_tag( "coin_icons/"+@coin.tag+".png", alt: @coin.name ) %>
@@ -8,6 +8,11 @@
             <%= link_to t(:buy), new_transaction_path(:type => 'buy',
               :coin_id => @coin.id), 
               class: "btn btn-sm btn-primary" %>
+            <% if @show_sell_btn %>
+              <%= link_to t(:sell), new_transaction_path(:type => 'sell',
+              :coin_id => @coin.id), 
+              class: "btn btn-sm btn-primary" %>
+            <% end %>
           </h1>
     </section>
   </aside>

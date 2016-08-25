@@ -18,6 +18,7 @@ class CoinsController < ApplicationController
   
   def show 
     @coin = Coin.find(params[:id])
+    @show_sell_btn = !current_user.wallets.where(coin:@coin).empty?
     
     metrics = JSON.parse(@coin.coin_metrics.to_json)
     # highstocks deals with values in format [UNIX miliseconds,number]
