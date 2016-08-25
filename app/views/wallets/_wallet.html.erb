@@ -1,10 +1,10 @@
 <tr>
   <% if !wallet.coin.is_fiat? %>
-    <td > <%= link_to image_tag( "coin_icons/"+wallet.coin.tag+".png", alt: wallet.coin.name ),
+    <td > <%= link_to image_tag( icon_url(wallet.coin.tag), alt: wallet.coin.name ),
               wallet.coin %> </td>
     <td > <%= link_to wallet.coin.name, wallet.coin %> </td>
   <% else %>
-    <td > <%= image_tag( "coin_icons/"+wallet.coin.tag+".png", 
+    <td > <%= image_tag( wallet.coin.tag+".png", 
           alt: wallet.coin.name ) %> </td>
     <td > <%= wallet.coin.name %> </td>
   <% end %>
