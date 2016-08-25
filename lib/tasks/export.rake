@@ -11,4 +11,9 @@ namespace :export do
     CoinAverageStatistic.all.to_csv
   end
 
+  desc 'Export users email and name to csv'
+  task :users_contact => :environment do
+    User.all.to_csv
+  end
+
 end

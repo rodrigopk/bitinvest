@@ -1,6 +1,6 @@
 module CoinsHelper
-  require "net/http"
-
+  #require "net/http"
+  #
   # def icon_url(tag)
   #   url = URI.parse("https://coinmarketcap.com/static/img/coins/16x16/"+tag+".png")
   #   req = Net::HTTP.new(url.host, url.port)
@@ -15,7 +15,6 @@ module CoinsHelper
   # end
 
   def icon_url(tag)
-    #"https://coinmarketcap.com/static/img/coins/16x16/"+tag+".png"
     "coin_icons/"+tag+".png"
   end
 
