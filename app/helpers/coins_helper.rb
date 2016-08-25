@@ -15,7 +15,8 @@ module CoinsHelper
   # end
 
   def icon_url(tag)
-    "https://coinmarketcap.com/static/img/coins/16x16/"+tag+".png"
+    #"https://coinmarketcap.com/static/img/coins/16x16/"+tag+".png"
+    "coin_icons/"+tag+".png"
   end
 
 end

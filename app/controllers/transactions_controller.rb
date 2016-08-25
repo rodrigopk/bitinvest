@@ -3,7 +3,6 @@ class TransactionsController < ApplicationController
   before_action :get_units, only: [:create]
   before_action :coin_available_supply, only: [:create]
 
-
   def new
     @wallet = nil
     unless current_user.wallets.find_by(coin_id: params[:coin_id]).nil?
@@ -24,7 +23,6 @@ class TransactionsController < ApplicationController
   end
   
   def create
-    
     fiat_wallet = current_user.get_fiat_wallet
     transaction_value = @units*@user_wallet.coin.value
     fiat_units = fiat_wallet.units+(-1*transaction_value)
@@ -44,8 +42,6 @@ class TransactionsController < ApplicationController
       
       redirect_to current_user  
     end
-    
-    
   end
   
   private
