@@ -31,6 +31,7 @@ pt:
   new_user: "Novo usuário?"
   remaining: "Restante"
   insufficient: "Fundos insuficientes."
+  exceeds_supply: "Você não pode comprar mais que a oferta disponível."
   here: "aqui"
   edit_profile: "Editar Perfil"
   save_changes: "Salvar alterações"

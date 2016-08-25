@@ -22,6 +22,7 @@
         <th><%= t(:remaining) %></th>
         <th><%= t(:value)%>($)</th>
         <th><%= t(:value)%>(฿)</th>
+        <th><%= t(:available_supply)%></th>
       </tr>
     </thead>
     <tbody>
@@ -35,7 +36,8 @@
         <% end %>
         <td><div id="remaining"> <%= @wallet.units %> </div></td>
         <td><div id="fiat"><%= number_with_precision(@fiat, precision: 8) %></div></td>
-        <td><div id="bitcoin"><%= @bitcoin %></div></td>
+        <td><div id="bitcoin"><%= number_with_precision(@bitcoin, precision: 8) %></div></td>
+        <td><%= @wallet.coin.available_supply %></td>
       </tr>
     <tbody>
   </table>
