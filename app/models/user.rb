@@ -106,9 +106,7 @@ class User < ActiveRecord::Base
   end
   
   def remove_empty_wallets
-    logger.info "\n === remove_empty_wallets === \n"
     self.wallets.each { |wallet| 
-      logger.info "\n === #{wallet.coin.name}.units: #{wallet.units} === \n"
       if wallet.units == 0
         logger.info "\n Destroying wallet: #{wallet.coin.name}\n"
         wallet.destroy

@@ -6,5 +6,11 @@ class Wallet < ActiveRecord::Base
   validates :user_id, presence: true
   validates :coin_id, presence: true
   validates :units, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
+
+  def total_wallet_value
+    self.units*self.coin.value
+  end
+
+  alias_method :value, :total_wallet_value
   
 end
